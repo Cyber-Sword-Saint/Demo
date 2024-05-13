@@ -66,7 +66,7 @@ public class MiniGameController : MonoBehaviour
         Debug.Log("Reset MiniGame");
         slider.transform.localPosition = posA;
         miniGameResultUI.text = "";
-        hitPoint.GetComponent<Image>().sprite = origSprite;
+        slider.GetComponent<Image>().sprite = origSprite;
         keyPressed = false;
     }
 }

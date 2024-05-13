@@ -1,0 +1,11 @@
+﻿title: NPCTest
+tags:
+---
+NPC: Hi, I'm deeply troubled lately.
+NPC: Too much is goint on with my life but I have no one to talk to...
+NPC: I heard that you are one of those witches who are gifted with the talent of futre telling.
+NPC: Will you help me with your divination knowledge?
+-> Of course. Let me see what I can do.
+    
+-> I'm sorry. Now is not the right time.
+===

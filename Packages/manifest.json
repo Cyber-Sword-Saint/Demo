@@ -11,6 +11,7 @@
     "com.unity.timeline": "1.6.5",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.1",
+    "dev.yarnspinner.unity": "2.4.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -45,6 +46,13 @@
     "jillejr.newtonsoft.json-for-unity": "13.0.102"
   },
   "scopedRegistries": [
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "dev.yarnspinner"
+      ]
+    },
     {
       "name": "jilleJr",
       "url": "https://npm.cloudsmith.io/jillejr/newtonsoft-json-for-unity",
