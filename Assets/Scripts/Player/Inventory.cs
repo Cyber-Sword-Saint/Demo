@@ -5,11 +5,17 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     //TODO string => item dictionary
-
+    public static Inventory instance;
+    Subscription <ItemPickUpEvent> item_pick_up_event_subscription;
     public List<Item> itemList = new List<Item>();
     public Dictionary<string, int> InventoryDict = new Dictionary<string, int>();
     // Start is called before the first frame update
-    Subscription<ItemPickUpEvent> item_pick_up_event_subscription;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         item_pick_up_event_subscription = EventBus.Subscribe<ItemPickUpEvent>(OnPickUp);
@@ -25,6 +31,7 @@ public class Inventory : MonoBehaviour
         {
             itemList.Add(e.item);
             InventoryDict[e.itemName] = 1;
+            // InventoryController.CreateNewItem(e.item);
         }
         else
         {

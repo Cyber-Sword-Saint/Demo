@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 116802890745698914, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.135841
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 116802890745698914, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99571466
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 116802890745698914, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: currItem
       value: 
       objectReference: {fileID: 11400000, guid: 8b61afed5836f4682a66de587368d5cc, type: 2}
+    - target: {fileID: 116802890745698918, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
     - target: {fileID: 116802890745698921, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
       propertyPath: m_Name
       value: bay leaf

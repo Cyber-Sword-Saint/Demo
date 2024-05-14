@@ -1,16 +1,14 @@
 using System.Collections;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashPilleBigController : MonoBehaviour
+public class TrashPileSmallController : MonoBehaviour
 {
     private bool isCollected;
     private bool isInRange;
-    private int itemAmount;
 
     public Item currItem;
-    public PlayerInventory inventory;
+    public BasicInventory inventory;
     public GameObject[] prefabsToSpawn = new GameObject[4];
 
     public KeyCode pickupKey = KeyCode.E;
@@ -19,28 +17,22 @@ public class TrashPilleBigController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        System.Random random = new System.Random();
-        int minValue = 2;
-        int maxValue = 6;
 
-        itemAmount = random.Next(minValue, maxValue + 1); // generate int from [minValue, maxValue]
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(pickupKey) || Input.GetButtonDown("PickUp")) && !isCollected && isInRange && itemAmount > 0)
+        if ((Input.GetKeyDown(pickupKey) || Input.GetButtonDown("PickUp")) && !isCollected && isInRange)
         {
+
+            isCollected = true;
+
             System.Random random = new System.Random();
             int itemIndex = random.Next(0, 4); // generate int from [minValue, maxValue]
-            Instantiate(prefabsToSpawn[itemIndex], transform.position + new Vector3(itemAmount * 0.2f, -0.3f, 0f), Quaternion.identity);
-
-            itemAmount--;
-
-            if (itemAmount == 0) {
-                isCollected = true;
-                // Destroy(gameObject);
-            }
+            Instantiate(prefabsToSpawn[itemIndex], transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        
             
             //Instantiate(pickupEffect, transform.position, transform.rotation);
             if (currItem != null)
@@ -68,4 +60,3 @@ public class TrashPilleBigController : MonoBehaviour
     }
         
 }
-

@@ -8,9 +8,9 @@ public class SimpleDivUI : MonoBehaviour
 {
     [Header("Public variables (Edit)")]
     public Item currItem;
+    public BasicInventory inventory;
     public TextMeshProUGUI resultText;
     public SimpleDivControl divControl;
-
     public bool itemSelected;
 
     [Header("Private variables (Do Not Edit)")]
@@ -23,13 +23,13 @@ public class SimpleDivUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI quantity_ui;
     [SerializeField]
-    private Inventory inventory;
+    //private Inventory inventory;
 
     public void Start()
     {
         curr_button = GetComponent<Button>();
         quantity_ui = GetComponentInChildren<TextMeshProUGUI>();
-        inventory = FindObjectOfType<Inventory>();
+        //inventory = FindObjectOfType<Inventory>();
 
     }
 
@@ -65,11 +65,9 @@ public class SimpleDivUI : MonoBehaviour
 
     public void UseItem()
     {
-        if (inventory.UseItem(currItem.itemName))
-        {
-            //TODO publish simpleDivitem selected event upon usage for later confirmation
-                resultText.text = currItem.divResult;
-        }
+        
+        inventory.UseItem(currItem.itemName);
+        resultText.text = currItem.divResult;
         StopAllCoroutines();
         StartCoroutine(ClearTextAfter(5f));
     }
