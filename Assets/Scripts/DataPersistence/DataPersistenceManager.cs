@@ -10,7 +10,6 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string[] fileNames;
     public int currentSaveSlot;
     private List<IDataPersistence> dataPersistenceObjects;
-    private int listCount;
     private FileDataHandler dataHandler;
 
     public static DataPersistenceManager instance
@@ -37,7 +36,6 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        listCount = dataPersistenceObjects.Count();
         LoadGame(currentSaveSlot);
     }
 
@@ -49,7 +47,7 @@ public class DataPersistenceManager : MonoBehaviour
         InventorySaveManager.instance.ResetData();
     }
 
-    public void LoadGame(int saveSlot)
+    public GameData LoadGame(int saveSlot)
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
@@ -73,6 +71,14 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log(dataPersistenceObj.ToString());
 
         }
+        return gameData;
+    }
+
+    public void DeleteData(int saveSlot)
+    {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
+        dataHandler.Delete(saveSlot);
+
     }
 
     public void SaveGame()

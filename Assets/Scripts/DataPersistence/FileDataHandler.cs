@@ -81,4 +81,25 @@ public class FileDataHandler
         }
     }
 
+    public void Delete(int saveSlot)
+    {
+        string fullPath = Path.Combine(Application.persistentDataPath, dataFileNames[saveSlot].ToString());
+        if (File.Exists(fullPath))
+        {
+            try
+            {
+                File.Delete(fullPath);
+                Debug.Log("Save slot " + saveSlot + " deleted successfully.");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error occurred when trying to delete save slot " + saveSlot + ": " + e);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Save slot " + saveSlot + " not found.");
+        }
+    }
+
 }
