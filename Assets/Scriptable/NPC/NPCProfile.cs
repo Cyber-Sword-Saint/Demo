@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New NPC Profile", menuName = "NPC/NPCProfile")]
 public class NPCProfile : ScriptableObject
 {
+    [Header("NPC Info")]
     public string npcName;
     public Color sigilColor;
     public NPCType npcType;
@@ -15,7 +16,9 @@ public class NPCProfile : ScriptableObject
     public Sprite npcPortrait;
     [Header("NPC Dialogue Settings")]
     [Tooltip("A list of TextAsset representing the NPC dialogue sequence")]
-    public List<TextAsset> DialogueSequence;
+    public string dialougeNode;
+    [Header("NPC Divnination Settings")]
+    public List<Item> itemsToUseForDivination;
 }
 
 public enum NPCType

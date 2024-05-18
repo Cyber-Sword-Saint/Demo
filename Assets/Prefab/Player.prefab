@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &678982834529807650
+--- !u!1 &3430039884245259045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,84 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 678982834529807655}
-  - component: {fileID: 678982834529807652}
-  - component: {fileID: 678982834529807653}
-  - component: {fileID: 678982834529807654}
-  - component: {fileID: 678982834529807656}
-  - component: {fileID: 678982834529807659}
-  - component: {fileID: 678982834529807658}
+  - component: {fileID: 2116056469761656173}
+  - component: {fileID: 3171889899202462225}
+  m_Layer: 0
+  m_Name: PlayerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2116056469761656173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430039884245259045}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4985201301970897217}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3171889899202462225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430039884245259045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37259725bea54ae28316282f9c58113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DivinationTitle:
+  - Vision Initiate
+  - 'Mystic Explorer '
+  - 'Fate Weaver '
+  - Divination Master
+  GatheringTitle:
+  - Pathfinder
+  - Resource Hunter
+  - Treasure Expert
+  - 'Guardian of Nature '
+  DivinationLevelDescription:
+  - Just beginning to explore the world of divination, curious about supernatural
+    phenomena.
+  - Starts to unveil the mysteries through practice, gradually understanding the
+    basics of divination.
+  - Capable of accurately interpreting signs of fate, with significant impact from
+    divination results, earning respect from people.
+  - ' Mastered advanced divination techniques, able to foresee major events, highly
+    sought after by seekers from various regions.'
+  GatheringLevelDescription:
+  - A beginner exploring the surroundings, learning basic gathering skills. Whether
+    it's herbs, refuse, or lost small items, all are subjects of their study.
+  - Capable of finding valuable resources in both urban and natural settings. They
+    know where forgotten treasures or useful scraps might be hidden.
+  - A professional gatherer, not only skilled in acquiring natural resources but
+    also adept at discovering and recovering ancient or hidden treasures.
+  - ' Not only masters of gathering but also protectors of nature.'
+--- !u!1 &4985201301970897220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4985201301970897217}
+  - component: {fileID: 4985201301970897218}
+  - component: {fileID: 4985201301970897219}
+  - component: {fileID: 4985201301970897216}
+  - component: {fileID: 4985201301970897230}
+  - component: {fileID: 4985201301970897229}
+  - component: {fileID: 4985201301970897228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -22,29 +93,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &678982834529807655
+--- !u!4 &4985201301970897217
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.82, y: -5.65, z: 0}
+  m_LocalPosition: {x: -4.56, y: -1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2152940598285904228}
+  - {fileID: 4153989907208451400}
+  - {fileID: 2116056469761656173}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &678982834529807652
+--- !u!212 &4985201301970897218
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 487028175
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1232226816, guid: bdb48096f78a4da4f8ec2e2cada2ce7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,28 +162,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &678982834529807653
+--- !u!114 &4985201301970897219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06088a39b08935741a3ff579fb211ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  inventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+  myInventoryUI: {fileID: 0}
+  inventoryKey: 113
+  moveSpeed: 3
   stopInput: 0
---- !u!95 &678982834529807654
+  miniGameController: {fileID: 0}
+--- !u!95 &4985201301970897216
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c90fed9042e05ad49963c2b78eded976, type: 2}
@@ -125,14 +201,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &678982834529807656
+--- !u!50 &4985201301970897230
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -146,13 +222,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!70 &678982834529807659
+--- !u!70 &4985201301970897229
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
+  m_GameObject: {fileID: 4985201301970897220}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -162,20 +238,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0060178856, y: 0.1793844}
   m_Size: {x: 0.5612534, y: 0.32243052}
   m_Direction: 1
---- !u!114 &678982834529807658
+--- !u!114 &4985201301970897228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678982834529807650}
-  m_Enabled: 1
+  m_GameObject: {fileID: 4985201301970897220}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5b652978b3c04a05b675737da86ba5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: []
---- !u!1 &8998648446934202940
+--- !u!1 &7646809689715723567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,37 +259,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2152940598285904228}
-  - component: {fileID: 5706061473931337901}
+  - component: {fileID: 4153989907208451400}
+  - component: {fileID: 5643874684800975567}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: DropShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2152940598285904228
+--- !u!4 &4153989907208451400
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8998648446934202940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.008, z: 0}
-  m_LocalScale: {x: 0.55830675, y: 0.18967998, z: 1}
+  m_GameObject: {fileID: 7646809689715723567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6413, y: 0.20848665, z: 0.6413}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 678982834529807655}
+  m_Father: {fileID: 4985201301970897217}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5706061473931337901
+--- !u!212 &5643874684800975567
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8998648446934202940}
+  m_GameObject: {fileID: 7646809689715723567}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -245,11 +321,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1572664639
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.36862746}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

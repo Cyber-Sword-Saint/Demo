@@ -1,5 +1,19 @@
 ﻿title: Test
 tags:
 ---
+<<declare $currentSpeaker = "NPC">>
 
+<<set $currentSpeaker = "NPC">>
+NPC: Hi, I'm deeply troubled lately.
+NPC: Too much is going on with my life but I have no one to talk to...
+NPC: I heard that you are one of those witches gifted with the talent of future telling.
+NPC: Will you help me with your divination knowledge?
+<<set $currentSpeaker = "Player">>
+-> Of course. Let me see what I can do.
+    <<set $currentSpeaker = "NPC">>
+    NPC: Thank you.
+    <<run_mini_game>>
+-> I'm sorry. Now is not the right time.
+    <<set $currentSpeaker = "NPC">>
+    NPC: I see. I 'll come back at a later time.
 ===

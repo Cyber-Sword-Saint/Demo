@@ -32,8 +32,13 @@ public class BasicInventory : ScriptableObject
         {
             itemList.Add(item);
             itemNumList.Add(1);
+            //publish pickup event + 10
+            EventBus.Publish(new PickupEvent(10));
+
         } else {
             itemNumList[itemList.IndexOf(item)]++;
+            //publish pickup event + 5
+            EventBus.Publish(new PickupEvent(5));
         }
 
         
