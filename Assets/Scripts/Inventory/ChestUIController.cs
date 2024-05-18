@@ -5,40 +5,61 @@ using UnityEngine;
 public class ChestUIController : MonoBehaviour
 {
     static ChestUIController instance;
-    public BasicInventory chestInventory;
+    public BasicInventory playerInventory;
+    public Chest inventory;
     public GameObject slotGrid;
-    public Slot slotPrefab;
-    public List<Item> itemInChest = new List<Item>();
+    public ChestSlot slotPrefab;
     
     void Awake()
     {
         instance = this;
     }
+
     private void OnEnable()
     {
-        foreach (var item in itemInChest)
-        {
-            CreateNewItem(item);
-        }
+
+        RefreshItem();       
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public static void UpdateOnClick(Item item)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        instance.inventory.RemoveItem(item);
+        instance.playerInventory.AddItem(item);
     }
 
     public static void CreateNewItem(Item item)
     {
-        Slot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);
+        ChestSlot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);
         newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
         newItem.slotItem = item;
         newItem.slotImage.sprite = item.icon;
+        // newItem.slotNum.text = instance.inventory.InventoryDict[item.itemName].ToString();
+        newItem.slotNum.text = instance.inventory.itemNumList[instance.inventory.itemList.IndexOf(item)].ToString();
+        
+        Debug.Log(item.itemName + ": " + instance.inventory.itemNumList[instance.inventory.itemList.IndexOf(item)].ToString());
+    }
+
+    public static void RefreshItem()
+    {
+        Debug.Log("Refresh chest");
+
+        for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
+        {
+            if (instance.slotGrid.transform.childCount <= 0)
+            {
+                break;
+            }
+            Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < instance.inventory.itemList.Count; i++)
+        {
+            CreateNewItem(instance.inventory.itemList[i]);
+            
+        }
+
+        Debug.Log("Refresh chest done");
+
+
     }
 }

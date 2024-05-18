@@ -1819,7 +1819,7 @@ GameObject:
   - component: {fileID: 6592730415447287965}
   - component: {fileID: 6651976013570355325}
   m_Layer: 5
-  m_Name: feather
+  m_Name: wind feather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,15 +1952,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6b95883d87b49dcb60c7f569105502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currItem: {fileID: 11400000, guid: 22cf5f85611af46bfb75040df07ea0f7, type: 2}
-  inventory: {fileID: 0}
+  currItem: {fileID: 11400000, guid: 04b2a79426c4491488d54b5dd6dc9bef, type: 2}
+  inventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   resultText: {fileID: 5309757711937925317}
-  divControl: {fileID: 1058236942}
   itemSelected: 0
   quantity: 0
   hasItem: 0
   curr_button: {fileID: 0}
   quantity_ui: {fileID: 0}
+  div_control: {fileID: 0}
 --- !u!1 &6592730415716659930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 6592730415716659943}
   - component: {fileID: 6592730415716659940}
   m_Layer: 5
-  m_Name: miststone
+  m_Name: mist stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2052,15 +2052,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6b95883d87b49dcb60c7f569105502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currItem: {fileID: 11400000, guid: b1ba9a61d57724e2f9b0a8cb732bffe1, type: 2}
-  inventory: {fileID: 0}
+  currItem: {fileID: 11400000, guid: 385d4d5fec3340845b8e5a318d6ea129, type: 2}
+  inventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   resultText: {fileID: 5309757711937925317}
-  divControl: {fileID: 1058236942}
   itemSelected: 0
   quantity: 0
   hasItem: 0
   curr_button: {fileID: 0}
   quantity_ui: {fileID: 0}
+  div_control: {fileID: 0}
 --- !u!114 &6592730415716659940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,14 +2417,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currItem: {fileID: 11400000, guid: 0facf4030db9f4a0a974746103027013, type: 2}
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   resultText: {fileID: 5309757711937925317}
-  divControl: {fileID: 1058236942}
   itemSelected: 0
   quantity: 0
   hasItem: 0
   curr_button: {fileID: 0}
   quantity_ui: {fileID: 0}
+  div_control: {fileID: 0}
 --- !u!1 &6592730416437106703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,14 +2667,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currItem: {fileID: 11400000, guid: 8b61afed5836f4682a66de587368d5cc, type: 2}
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   resultText: {fileID: 5309757711937925317}
-  divControl: {fileID: 1058236942}
   itemSelected: 0
   quantity: 0
   hasItem: 0
   curr_button: {fileID: 0}
   quantity_ui: {fileID: 0}
+  div_control: {fileID: 0}
 --- !u!1 &6592730417144444725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,12 +3586,12 @@ MonoBehaviour:
   selectedDivItemIconPrefab: {fileID: 768920288942413045, guid: e8e66e7f65a6e4658bff4bc3e0b318bc, type: 3}
   secondaryDivView: {fileID: 4650426695641407831}
   divResult: {fileID: 5309757711937925317}
+  playerInventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   primary_item: {fileID: 0}
   primary_icon: {fileID: 0}
   secondary_item: {fileID: 0}
   secondary_icon: {fileID: 0}
   secondary_buttons: []
-  player_inventory: {fileID: 0}
 --- !u!1 &8970709516221393018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3775,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &8899978583127075032 stripped
@@ -3889,6 +3901,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &9185727874569253241 stripped
@@ -4003,6 +4027,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &5447259988839782786 stripped
@@ -4105,6 +4141,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &5988837258750777039 stripped
@@ -4207,6 +4255,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &3311854373873867442 stripped
@@ -4321,6 +4381,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &4458178799214613695 stripped
@@ -4435,6 +4507,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
 --- !u!224 &20413188132466841 stripped
@@ -4537,6 +4621,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: divControl
+      value: 
+      objectReference: {fileID: 1058236942}
+    - target: {fileID: 7573020148507951144, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 5309757711937925317}
     - target: {fileID: 8936504292686017666, guid: 5f24366776da14cad8d6f81e226d1627, type: 3}
       propertyPath: m_IsActive
       value: 1

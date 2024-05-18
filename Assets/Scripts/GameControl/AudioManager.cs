@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 	public AudioSource bgm, levelEndMusic;
 
 	Subscription<SimpleDivItemSelectionEvent> simple_div_item_selection_event;
-	Subscription<DivinationStartsEvent> divination_starts_event_subscription;
+	Subscription<DivinationEvent> divination_starts_event_subscription;
 	Subscription<MiniGamePerfectEvent> mini_game_perfect_event_subscription;
 	Subscription<MiniGameHitEvent> mini_game_hit_event_subscription;
 	Subscription<MiniGameFailEvent> mini_game_fail_event_subscription;
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
 		simple_div_item_selection_event = EventBus.Subscribe<SimpleDivItemSelectionEvent>(PlaySelectionSFX);
-		divination_starts_event_subscription = EventBus.Subscribe<DivinationStartsEvent>(PlayDivinationSFX);
+		divination_starts_event_subscription = EventBus.Subscribe<DivinationEvent>(PlayDivinationSFX);
 		mini_game_perfect_event_subscription = EventBus.Subscribe<MiniGamePerfectEvent>(PlayMiniGamePerfectSFX);
 		mini_game_hit_event_subscription = EventBus.Subscribe<MiniGameHitEvent>(PlayMiniGameHitSFX);
 		mini_game_fail_event_subscription = EventBus.Subscribe<MiniGameFailEvent>(PlayMiniGameFailSFX);
@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
 		PlaySFX(1);
     }
 
-	void PlayDivinationSFX(DivinationStartsEvent e)
+	void PlayDivinationSFX(DivinationEvent e)
     {
 		PlaySFX(2);
     }

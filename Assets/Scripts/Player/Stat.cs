@@ -7,36 +7,14 @@ public class Stat
     public float minVal { get; set; }
     public float maxVal { get; set; }
     public float currVal { get; set; }
-    public bool displayOn { get; set; }
-    public Color barColor { get; set; }
+    private float Ratio;
 
-    // TODO UI styling info
-    public float Ratio = 1;
-
-
-    //signal for UI
-    [Signal]
-    public delegate void stat_change(string stat_name);
-
-    public Stat(string _name, float _minVal, float _maxVal, float _initialVal, bool _displayOn)
+    public Stat(string _name, float _minVal, float _maxVal, float _initialVal)
     {
         name = _name;
         minVal = _minVal;
         maxVal = _maxVal;
         currVal = _initialVal;
-        displayOn = _displayOn;
-    }
-
-    /// <summary>
-    /// Example defualt stat constructor
-    /// </summary>
-    public Stat()
-    {
-        name = "health";
-        minVal = 0;
-        maxVal = 100;
-        currVal = 100;
-        displayOn = true;
     }
 
     /// <summary>
@@ -82,24 +60,11 @@ public class Stat
         ClampCurrentValue();
     }
 
-    public void toggleUI()
-    {
-        if (displayOn)
-        {
-            displayOn = false;
-        }
-
-        else
-        {
-            displayOn = true;
-        }
-    }
-
     private void ClampCurrentValue()
     {
         currVal = Mathf.Clamp(currVal, minVal, maxVal);
         Ratio = currVal / maxVal;
         // publish statChange event when clamp function is called
-        EventBus.Publish<StatChangeEvent>(new StatChangeEvent(this));
+        EventBus.Publish(new StatChangeEvent(this));
     }
 }

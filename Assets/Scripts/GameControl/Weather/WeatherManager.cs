@@ -65,4 +65,10 @@ public class WeatherManager : MonoBehaviour, IDataPersistence
     {
         data.weatherType = (int)currentWeather;
     }
+
+    // public void ResetData(ref GameData data)
+    // {
+    //     data.weatherType = 0;
+
+    // }
 }

@@ -10,13 +10,13 @@ public class GameData
     public int weatherType;
 
     // TODO: save the inventory
-    public string inventoryReference;
 
     // public int divineCount;
     public GameData()
     {
-        dayCount = 0;
+        dayCount = 1;
         weatherType = 0;
-        Debug.Log("New dayCount weatherType generated");
+        Debug.Log("New data generated");
+
     }
 }

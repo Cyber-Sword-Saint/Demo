@@ -10,6 +10,7 @@ public class SelectedDivItemsController : MonoBehaviour
     public GameObject selectedDivItemIconPrefab;
     public GameObject secondaryDivView;
     public TextMeshProUGUI divResult;
+    public BasicInventory playerInventory;
 
     [Header("Private Variables")]
     [SerializeField]
@@ -22,15 +23,12 @@ public class SelectedDivItemsController : MonoBehaviour
     private GameObject secondary_icon;
     [SerializeField]
     private Button[] secondary_buttons;
-    [SerializeField]
-    private Inventory player_inventory;
     
     // Start is called before the first frame update
     void Start()
     {
         simple_div_item_selection_event = EventBus.Subscribe<SimpleDivItemSelectionEvent>(OnItemSelection);
         secondary_buttons = secondaryDivView.GetComponentsInChildren<Button>();
-        player_inventory = FindObjectOfType<Inventory>();
     }
 
     private void Update()
@@ -156,13 +154,13 @@ public class SelectedDivItemsController : MonoBehaviour
     {
         if(primary_item != null)
         {
-            player_inventory.UseItem(primary_item.itemName);
+            playerInventory.UseItem(primary_item);
             DestroyImmediate(primary_icon, true);
         }
 
         if(secondary_item != null)
         {
-            player_inventory.UseItem(secondary_item.itemName);
+            playerInventory.UseItem(secondary_item);
             DestroyImmediate(secondary_icon, true);
         }
 
@@ -182,7 +180,7 @@ public class SelectedDivItemsController : MonoBehaviour
         StartCoroutine(eraseText(3f));
         primary_item = null;
         secondary_item = null;
-        EventBus.Publish(new DivinationStartsEvent());
+        EventBus.Publish(new DivinationEvent(10,5));
     }
 
     IEnumerator eraseText(float duration)

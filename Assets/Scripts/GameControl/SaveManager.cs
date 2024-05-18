@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveManager : MonoBehaviour
 {
     public BasicInventory myInventory;
-
+    
     public void SaveGame()
     {
         Debug.Log(Application.persistentDataPath);

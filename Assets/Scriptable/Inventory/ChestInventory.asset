@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ChestInventory
   m_EditorClassIdentifier: 
   itemList: []
+  itemNumList: 
+  isChest: 0

@@ -19,10 +19,12 @@ public class MainMenu : MonoBehaviour
 
     }
 
-	public void StartGame()
+	public void NewGame()
 	{
 		// TODO: get to know the saved language
-        SceneManager.LoadScene(startScene);
+		DataPersistenceManager.instance.NewGame();
+		DataPersistenceManager.instance.SaveGame();
+		SceneManager.LoadScene(startScene);
 	}
 
 	public void QuitGame()
@@ -33,7 +35,9 @@ public class MainMenu : MonoBehaviour
 
 	public void ContinueGame()
 	{
+		SceneManager.LoadScene(startScene);
 		DataPersistenceManager.instance.LoadGame();
+		
 	}
 
     

@@ -10,8 +10,6 @@ public class SimpleDivUI : MonoBehaviour
     public Item currItem;
     public BasicInventory inventory;
     public TextMeshProUGUI resultText;
-    public SimpleDivControl divControl;
-
     public bool itemSelected;
 
     [Header("Private variables (Do Not Edit)")]
@@ -23,11 +21,14 @@ public class SimpleDivUI : MonoBehaviour
     private Button curr_button;
     [SerializeField]
     private TextMeshProUGUI quantity_ui;
+    [SerializeField]
+    private SimpleDivControl div_control;
 
     public void Start()
     {
         curr_button = GetComponent<Button>();
         quantity_ui = GetComponentInChildren<TextMeshProUGUI>();
+        div_control = FindObjectOfType<SimpleDivControl>();
 
     }
 
@@ -45,9 +46,17 @@ public class SimpleDivUI : MonoBehaviour
             {
                 hasItem = false;
             }
-            quantity = inventory.InventoryDict[currItem.itemName];
+            quantity = inventory.itemNumList[inventory.itemList.IndexOf(currItem)];
             quantity_ui.text = $"{quantity}";
     
+        }
+
+        // if item found in list
+        else
+        {
+            quantity = 0;
+            quantity_ui.text = $"{quantity}";
+            hasItem = false;
         }
 
         curr_button.interactable = hasItem;
@@ -65,8 +74,7 @@ public class SimpleDivUI : MonoBehaviour
     {
         if (inventory.UseItem(currItem))
         {
-            //TODO publish simpleDivitem selected event upon usage for later confirmation
-                resultText.text = currItem.divResult;
+            resultText.text = currItem.divResult;
         }
         StopAllCoroutines();
         StartCoroutine(ClearTextAfter(5f));

@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 1085742521}
   - component: {fileID: 1085742520}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1437793505}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -867,6 +867,7 @@ GameObject:
   - component: {fileID: 1437793505}
   - component: {fileID: 1437793510}
   - component: {fileID: 1437793511}
+  - component: {fileID: 1437793512}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1000,6 +1001,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f9fc6ef66f32c4abf67963c0ac01aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: test.game
+--- !u!114 &1437793512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437793504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b5a750ded085f48bb12bbdeb17f328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
+  chestInventory: {fileID: 0}
 --- !u!1 &1783278837
 GameObject:
   m_ObjectHideFlags: 0

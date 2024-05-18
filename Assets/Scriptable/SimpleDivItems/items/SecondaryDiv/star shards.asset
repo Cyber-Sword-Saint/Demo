@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e46307d6e2c4c2181d80e39b0e9823, type: 3}
   m_Name: star shards
   m_EditorClassIdentifier: 
-  itemName: star
-  itemType: 0
-  itemDescription: 
+  itemName: star shards
+  itemType: 1
+  itemDescription: star shards
   overworldSprite: {fileID: 21300000, guid: 392ad84535620408f8c744591427654a, type: 3}
   icon: {fileID: 21300000, guid: 392ad84535620408f8c744591427654a, type: 3}
   divResult: 

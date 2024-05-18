@@ -32,7 +32,10 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
+        Debug.Log("New Game");
+
         this.gameData = new GameData();
+        InventorySaveManager.instance.ResetData();
     }
 
     public void LoadGame()

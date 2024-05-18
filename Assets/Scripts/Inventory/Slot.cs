@@ -8,10 +8,11 @@ public class Slot : MonoBehaviour
     public Item slotItem;
     public Image slotImage;
     public Text slotNum;
+    public BasicInventory slotInventory;
 
     public void ItemOnClicked() 
     {
-        InventoryController.UpdateItemInfo(slotItem.itemDescription);
+        InventoryController.UpdateOnClick(slotItem);
     }
 
 }

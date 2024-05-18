@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TrashPilleBigController : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class TrashPilleBigController : MonoBehaviour
     private int itemAmount;
 
     public Item currItem;
-    public BasicInventory inventory;
     public GameObject[] prefabsToSpawn = new GameObject[3];
 
     public KeyCode pickupKey = KeyCode.E;
     public GameObject pickupEffect;
+
+    private float throwHeight = 1f;
+    private float throwDuration = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,9 @@ public class TrashPilleBigController : MonoBehaviour
         {
             System.Random random = new System.Random();
             int itemIndex = random.Next(0, 3); // generate int from [minValue, maxValue]
-            Instantiate(prefabsToSpawn[itemIndex], transform.position + new Vector3(itemAmount * 0.2f, -0.3f, 0f), Quaternion.identity);
+            GameObject spawnedItem = Instantiate(prefabsToSpawn[itemIndex], transform.position + new Vector3(itemAmount * 0.2f, -0.3f, 0f), Quaternion.identity);
+
+            ThrowItem(spawnedItem);
 
             itemAmount--;
 
@@ -65,6 +70,16 @@ public class TrashPilleBigController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         isInRange = false;
+    }
+
+    public void ThrowItem(GameObject spawnedItem)
+    {
+        spawnedItem.transform.DOJump(spawnedItem.transform.position, throwHeight, 1, throwDuration)
+        .SetEase(Ease.OutQuint)
+        .OnComplete(() =>
+        {
+
+        });
     }
         
 }

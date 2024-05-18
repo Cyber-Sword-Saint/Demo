@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: dd895d52cbf528c4e95ffde068487660
   - enabled: 0
-    path: Assets/Scenes/NPCTest.unity
+    path: Assets/Scenes/DialogueTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/SampleScene 1.unity
+    path: Assets/Scenes/DialogueTest.unity
     guid: f2247dc3d29d9ec4aad6fdfa024d6820
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2ab01a82c190d70408f4090a46c8ecc9, type: 2}

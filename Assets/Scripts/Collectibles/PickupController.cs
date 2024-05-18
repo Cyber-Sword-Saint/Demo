@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class PickupController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PickupController : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     // public BasicInventory inventory;
     public GameObject pickupEffect;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +28,7 @@ public class PickupController : MonoBehaviour
             isCollected = true;
             
             Destroy(gameObject);
+
             //Instantiate(pickupEffect, transform.position, transform.rotation);
 
             if (currItem != null)
