@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Yarn.Unity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D theRB;
 	public bool stopInput;
 
+	// settings used for freeze playerInput
+	public MiniGameController miniGameController;
+	private DialogueRunner dialogueRunner;
+
 	private void Awake()
 	{
 		instance = this;
@@ -28,12 +33,17 @@ public class PlayerController : MonoBehaviour
 		anim = GetComponent<Animator>();
 		theSR = GetComponent<SpriteRenderer>();
 		theRB = GetComponent<Rigidbody2D>();
+
+		//    dialogueRunner
+		dialogueRunner = FindObjectOfType<DialogueRunner>();
+		
     }
 
     // Update is called once per frame
     void Update()
     {	
-		if (!stopInput && !PauseMenu.instance.isPaused && !ChestController.instance.isOpen) {  
+		if (!stopInput && !PauseMenu.instance.isPaused && !ChestController.instance.isOpen && !dialogueRunner.IsDialogueRunning && !miniGameController.isActiveAndEnabled)
+		{  
 			OpenInventory();
 
 			if (!myInventoryUI.activeSelf)
