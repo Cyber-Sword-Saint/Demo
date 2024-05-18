@@ -54,7 +54,7 @@ public class BasicInventory : ScriptableObject
 
         InventoryController.RefreshItem();
 
-        Debug.Log($"{item.itemName}:{itemNumList[itemList.IndexOf(item)]}");
+        // Debug.Log($"{item.itemName}:{itemNumList[itemList.IndexOf(item)]}");
     }
     
     public bool UseItem(Item item)
@@ -64,7 +64,7 @@ public class BasicInventory : ScriptableObject
         //TODO check cases, item enum to decided what happens when item is useds
         if (itemList.Contains(item))
         {
-            Debug.Log("Use: " + item.itemName);
+            // Debug.Log("Use: " + item.itemName);
 
             itemNumList[itemList.IndexOf(item)]--;
             if (itemNumList[itemList.IndexOf(item)] == 0)

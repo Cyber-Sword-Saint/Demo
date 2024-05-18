@@ -19,13 +19,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
-	public void NewGame()
-	{
-		// TODO: get to know the saved language
-		DataPersistenceManager.instance.NewGame();
-		DataPersistenceManager.instance.SaveGame();
-		SceneManager.LoadScene(startScene);
-	}
+	// public void NewGame(int saveSlot)
+	// {
+	// 	Debug.Log("" + saveSlot);
+	// 	DataPersistenceManager.instance.NewGame(saveSlot);
+	// 	DataPersistenceManager.instance.SaveGame();
+	// 	SceneManager.LoadScene(startScene);
+	// }
 
 	public void QuitGame()
 	{
@@ -33,12 +33,13 @@ public class MainMenu : MonoBehaviour
 		Debug.Log("Quitting Game");
 	}
 
-	public void ContinueGame()
+	public void ContinueGame(int saveSlot)
 	{
-		SceneManager.LoadScene(startScene);
-		DataPersistenceManager.instance.LoadGame();
 		
-	}
+		DataPersistenceManager.instance.LoadGame(saveSlot);
+		SceneManager.LoadScene(startScene);
 
-    
+		// DataPersistenceManager.instance.SaveGame();
+
+	}
 }
