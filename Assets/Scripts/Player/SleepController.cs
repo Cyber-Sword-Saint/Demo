@@ -7,6 +7,7 @@ public class SleepController : MonoBehaviour
     private int dayCount;
     // public GameObject dayDisplay;
     private bool isInRange;
+    private bool canSleep = true;
     public KeyCode sleepKey = KeyCode.E;
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,24 @@ public class SleepController : MonoBehaviour
 
     private void OnPlayerSleep()
     {
-        if ((Input.GetKeyDown(sleepKey) && isInRange))
+        if ((Input.GetKeyDown(sleepKey) && isInRange && canSleep))
         {
             RandomGenerator.instance.OnPlayerSleep();          
-            DayCount.instance.OnPlayerSleep();
+            GlobalObjectManager.instance.dayCount.OnPlayerSleep();
             ChestRefreshController.instance.OnPlayerSleep();
             DataPersistenceManager.instance.SaveGame();
             SleepUI.instance.StartSleepScene();
+
+            StartCoroutine(SleepCooldown());
             
         }
+    }
+
+    private IEnumerator SleepCooldown()
+    {
+        canSleep = false;
+        yield return new WaitForSeconds(3);
+        canSleep = true;
     }
 
     private void OnTriggerStay2D(Collider2D other)

@@ -28,7 +28,7 @@ public class SleepUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentDay = DayCount.instance.dayCount;
+        currentDay = GlobalObjectManager.instance.dayCount.dayCount;
     }
 
     public void StartSleepScene()

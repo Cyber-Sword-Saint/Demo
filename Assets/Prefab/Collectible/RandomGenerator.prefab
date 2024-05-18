@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToGenerate:
-  - {fileID: 116802890745698921, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
+  - {fileID: 9138322715535160054, guid: 6770186d5bf624d9e88670996c83b269, type: 3}
   - {fileID: 5628536011798018942, guid: 16ac9380568087f4f93061c79b0b23a7, type: 3}
-  - {fileID: 116802890745698921, guid: af8f83e069fe64b358b82867663db39d, type: 3}
+  - {fileID: 9138322715535160054, guid: 5289e66b119b8400d92306fec8112546, type: 3}
   minPosition: {x: 5, y: 0, z: 0}
   maxPosition: {x: 10, y: -5, z: 0}

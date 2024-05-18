@@ -7,20 +7,24 @@ using System.IO;
 public class FileDataHandler
 {
     private string dataDirPath = "";
-    private string dataFileName = "";
+    // private string dataFileName = "";
+    private string[] dataFileNames;
 
-    public FileDataHandler(string dataDirPath, string dataFileName)
+    public FileDataHandler(string dataDirPath, string[] dataFileNames)
     {
         this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName;
+        this.dataFileNames = dataFileNames;
     }
 
-    public GameData Load()
+    public GameData Load(int saveSlot)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, dataFileNames[saveSlot].ToString());
+        Debug.Log("Path: " + fullPath);
+
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
+            Debug.Log("Path exists");
             try
             {
                 string dataToLoad = "";
@@ -29,6 +33,7 @@ public class FileDataHandler
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         dataToLoad = reader.ReadToEnd();
+                        Debug.Log("Load successfully1");
                     }
                 }
 
@@ -41,15 +46,19 @@ public class FileDataHandler
                 + fullPath + "\n" + e);
 
             }
+        } else {
+            Debug.Log("Path not exists");
         }
 
+        Debug.Log("Load successfully2");
         return loadedData;
 
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, int saveSlot)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        Debug.Log("save slot:" + saveSlot);
+        string fullPath = Path.Combine(dataDirPath, dataFileNames[saveSlot].ToString());
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -61,6 +70,7 @@ public class FileDataHandler
                 using (StreamWriter writer = new StreamWriter(stream))
                 {
                     writer.Write(dataToStore);
+                    Debug.Log("slot " + saveSlot +  " saved");
                 }
             }
         }

@@ -6,7 +6,11 @@ using System.Linq;
 public class DataPersistenceManager : MonoBehaviour
 {
     [Header("File Storage Config")]
-    [SerializeField] private string fileName;
+    // [SerializeField] private string fileName;
+    [SerializeField] private string[] fileNames;
+    public int currentSaveSlot;
+    private List<IDataPersistence> dataPersistenceObjects;
+    private int listCount;
     private FileDataHandler dataHandler;
 
     public static DataPersistenceManager instance
@@ -16,21 +20,28 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     private GameData gameData;
-    private List<IDataPersistence> dataPersistenceObjects;
+    
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+        listCount = dataPersistenceObjects.Count();
+        LoadGame(currentSaveSlot);
     }
 
-    public void NewGame()
+    public void NewGame(int saveSlot)
     {
         Debug.Log("New Game");
 
@@ -38,20 +49,29 @@ public class DataPersistenceManager : MonoBehaviour
         InventorySaveManager.instance.ResetData();
     }
 
-    public void LoadGame()
+    public void LoadGame(int saveSlot)
     {
-        Debug.Log("Load Game");
-        this.gameData = dataHandler.Load();
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+        
+        Debug.Log("Load Game: " + saveSlot);
+        this.currentSaveSlot = saveSlot;
+        this.gameData = dataHandler.Load(saveSlot);
 
         if (this.gameData == null)
         {
             Debug.Log("No saved data");
-            NewGame();
+            NewGame(saveSlot);
+            // SaveGame();
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
+            Debug.Log("foreach load");
             dataPersistenceObj.LoadData(gameData);
+            Debug.Log(dataPersistenceObj.ToString());
+
         }
     }
 
@@ -59,12 +79,18 @@ public class DataPersistenceManager : MonoBehaviour
     {
         Debug.Log("Save");
 
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+
+
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
+            Debug.Log("foreach save");
             dataPersistenceObj.SaveData(ref gameData);
+            Debug.Log(dataPersistenceObj.ToString());
         }
 
-        dataHandler.Save(gameData);
+        dataHandler.Save(gameData, currentSaveSlot);
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
