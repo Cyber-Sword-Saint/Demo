@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class DayCount : MonoBehaviour, IDataPersistence
 {
-    public int dayCount;
+    public int dayCount = 0;
     private Text dayCountText;
-    // public static DayCount instance;
+    public static DayCount instance;
     private void Awake()
     {
         dayCountText = this.GetComponent<Text>();
-        GlobalObjectManager.instance.dayCount = this;
-        Refresh();
-        
+        instance = this;
     }
 
     // Start is called before the first frame update
@@ -26,12 +24,6 @@ public class DayCount : MonoBehaviour, IDataPersistence
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void Refresh()
-    {
-        DataPersistenceManager.instance.LoadGame(DataPersistenceManager.instance.currentSaveSlot);
         dayCountText.text = "" + dayCount;
     }
 
@@ -39,22 +31,17 @@ public class DayCount : MonoBehaviour, IDataPersistence
     {
         dayCount++;
         WeatherManager.instance.GenerateRandomWeather();
-        dayCountText.text = "" + dayCount;
     }
 
     public void LoadData(GameData data)
     {
         this.dayCount = data.dayCount;
-        Debug.Log("Load: Day " + dayCount);
-        
     }
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("Save: Day " + dayCount);
+        Debug.Log("Day " + dayCount);
         data.dayCount = dayCount;
-        dayCountText.text = "" + dayCount;
-
     }
     
     // public void ResetData(ref GameData data)

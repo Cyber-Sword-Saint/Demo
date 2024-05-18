@@ -59,13 +59,11 @@ public class WeatherManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         currentWeather = (WeatherType)data.weatherType;
-        Debug.Log("Load: Weather " + (int)currentWeather);
     }
 
     public void SaveData(ref GameData data)
     {
         data.weatherType = (int)currentWeather;
-        Debug.Log("Save: Weather " + (int)currentWeather);
     }
 
     // public void ResetData(ref GameData data)

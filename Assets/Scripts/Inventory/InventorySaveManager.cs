@@ -10,26 +10,20 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 {
     public BasicInventory myInventory;
     public Chest chestInventory;
-    private int saveSlot;
-    [SerializeField] private string[] fileNames;
-    private string fullPath;
+
     public static InventorySaveManager instance;
 
     private void Awake()
     {
         instance = this;
-        saveSlot = DataPersistenceManager.instance.currentSaveSlot;
-        fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
     public void LoadData(GameData data)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        SetFullPath(DataPersistenceManager.instance.currentSaveSlot);
-        Debug.Log(fullPath);
 
-        if (File.Exists(fullPath))
+        if (File.Exists(Application.persistentDataPath + "/inventory.txt"))
         {
-            FileStream file = File.Open(fullPath, FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/inventory.txt", FileMode.Open);
             
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), myInventory);
             file.Close();
@@ -46,11 +40,10 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        SetFullPath(DataPersistenceManager.instance.currentSaveSlot);
-        Debug.Log(fullPath);
+        Debug.Log(Application.persistentDataPath);
 
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file1 = File.Create(fullPath);
+        FileStream file1 = File.Create(Application.persistentDataPath + "/inventory.txt");
         FileStream file2 = File.Create(Application.persistentDataPath + "/chest.txt");
 
 
@@ -65,25 +58,18 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 
     }
 
-    public void ResetData(int saveSlot)
+    public void ResetData()
     {
         myInventory.Clear();
         
         Debug.Log("Reset");
 
-        SetFullPath(saveSlot);
-
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file = File.Create(fullPath);
+        FileStream file = File.Create(Application.persistentDataPath + "/inventory.txt");
 
         var json = JsonUtility.ToJson(myInventory);
         formatter.Serialize(file, json);
 
         file.Close();
-    }
-
-    void SetFullPath(int saveSlot)
-    {
-        fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
 }
