@@ -63,9 +63,9 @@ public class StatChangeEvent
 }
 
 public class PickupEvent{
-    public bool firstTimePickUp;
-    public PickupEvent(bool _firstTimePickUp)
+    public float proficiencyIncrease;
+    public PickupEvent(float _increase)
     {
-        firstTimePickUp = _firstTimePickUp;
+        proficiencyIncrease = _increase;
     }
 }
