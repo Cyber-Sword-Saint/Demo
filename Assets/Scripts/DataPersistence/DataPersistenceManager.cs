@@ -11,16 +11,14 @@ public class DataPersistenceManager : MonoBehaviour
     public int currentSaveSlot;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
+    private GameData gameData;
 
     public static DataPersistenceManager instance
     {
         get;
         private set;
     }
-
-    private GameData gameData;
     
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -44,7 +42,7 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("New Game");
 
         this.gameData = new GameData();
-        InventorySaveManager.instance.ResetData();
+        InventorySaveManager.instance.ResetData(saveSlot);
     }
 
     public GameData LoadGame(int saveSlot)

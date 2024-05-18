@@ -823,6 +823,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myInventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
   chestInventory: {fileID: 0}
+  fileNames:
+  - inventory1
+  - inventory2
+  - inventory3
 --- !u!114 &363998292
 MonoBehaviour:
   m_ObjectHideFlags: 0
