@@ -61,3 +61,11 @@ public class StatChangeEvent
         stat = _stat;
     }
 }
+
+public class PickupEvent{
+    public bool firstTimePickUp;
+    public PickupEvent(bool _firstTimePickUp)
+    {
+        firstTimePickUp = _firstTimePickUp;
+    }
+}
