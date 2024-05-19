@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SimpleDivUI : MonoBehaviour
 {
@@ -23,13 +24,18 @@ public class SimpleDivUI : MonoBehaviour
     private TextMeshProUGUI quantity_ui;
     [SerializeField]
     private SimpleDivControl div_control;
+    [SerializeField]
+    private Image curr_image;
+    
 
     public void Start()
     {
         curr_button = GetComponent<Button>();
         quantity_ui = GetComponentInChildren<TextMeshProUGUI>();
         div_control = FindObjectOfType<SimpleDivControl>();
-
+        curr_image = GetComponent<Image>();
+        // initialize button sprite to match the item
+        curr_image.sprite = currItem.icon;
     }
 
     public void Update()
@@ -80,7 +86,23 @@ public class SimpleDivUI : MonoBehaviour
         StartCoroutine(ClearTextAfter(5f));
     }
 
-    public IEnumerator ClearTextAfter(float duration)
+    public void Hover()
+    {
+        if (curr_button.interactable)
+        {
+            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1f).SetEase(Ease.OutBack);
+        }
+    }
+
+    public void HoverExit()
+    {
+        if (curr_button.interactable)
+        {
+            transform.DOScale(new Vector3(1, 1, 1), 1f).SetEase(Ease.OutBack);
+        }
+    }
+
+    private IEnumerator ClearTextAfter(float duration)
     {
         yield return new WaitForSeconds(duration);
         resultText.text = "";
