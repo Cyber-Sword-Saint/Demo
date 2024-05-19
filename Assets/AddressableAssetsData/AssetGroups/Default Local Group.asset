@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 93cb37fb66a2deb439151e394fbb55c2
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: de4cfa8b7d3e93549ad05c0fd21f7af9
+    m_Address: Assets/Scriptable/Chest/New Chest.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 660d38377b2a0ca4ca2e615e92367efc, type: 2}
   m_SchemaSet:

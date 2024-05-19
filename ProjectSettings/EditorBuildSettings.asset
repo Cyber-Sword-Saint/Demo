@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9008954a6883c4bfda33e0abb99af2be
   - enabled: 0
-    path: Assets/Scenes/DialogueTest.unity
+    path: Assets/Scenes/MainScene.unity
     guid: f2247dc3d29d9ec4aad6fdfa024d6820
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2ab01a82c190d70408f4090a46c8ecc9, type: 2}
