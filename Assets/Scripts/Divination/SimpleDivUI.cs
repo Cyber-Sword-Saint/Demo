@@ -13,6 +13,8 @@ public class SimpleDivUI : MonoBehaviour
     public TextMeshProUGUI resultText;
     public bool itemSelected;
 
+    public float animationDuration = 0.8f;
+
     [Header("Private variables (Do Not Edit)")]
     [SerializeField]
     private int quantity;
@@ -90,7 +92,7 @@ public class SimpleDivUI : MonoBehaviour
     {
         if (curr_button.interactable)
         {
-            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1f).SetEase(Ease.OutBack);
+            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), animationDuration).SetEase(Ease.OutBack);
         }
     }
 
@@ -98,7 +100,7 @@ public class SimpleDivUI : MonoBehaviour
     {
         if (curr_button.interactable)
         {
-            transform.DOScale(new Vector3(1, 1, 1), 1f).SetEase(Ease.OutBack);
+            transform.DOScale(new Vector3(1, 1, 1), animationDuration).SetEase(Ease.OutBack);
         }
     }
 
