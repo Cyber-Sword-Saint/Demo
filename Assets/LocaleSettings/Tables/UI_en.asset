@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 744124780544
-    m_Localized: START GAME
+    m_Localized: NEW GAME
     m_Metadata:
       m_Items: []
   - m_Id: 1952105304064
@@ -56,10 +56,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 38253433131008
     m_Localized: CONTINUE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 4991831729967104
-    m_Localized: SETTINGS
     m_Metadata:
       m_Items: []
   references:

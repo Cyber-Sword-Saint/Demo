@@ -55,7 +55,7 @@ public class InventoryController : MonoBehaviour
 
     public static void RefreshItem()
     {
-        // Debug.Log("Refresh");
+        Debug.Log("Refresh");
 
         if (instance.slotGrid) {
             for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
