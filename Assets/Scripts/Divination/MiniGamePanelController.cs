@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class MiniGamePanelController : MonoBehaviour
 {
     public KeyCode key;
     public GameObject view;
-    private MiniGameController miniGameController; 
+    private MiniGameController miniGameController;
+    private DialogueRunner dialogueRunner;
     
     // Start is called before the first frame update
     void Start()
     {
         miniGameController = view.GetComponent<MiniGameController>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+        dialogueRunner.AddCommandHandler("run_mini_game", RunMiniGame);
     }
 
     // Update is called once per frame
@@ -30,6 +34,11 @@ public class MiniGamePanelController : MonoBehaviour
                 ClosePanel();
             }
         }
+    }
+
+    void RunMiniGame()
+    {
+        OpenPanel();
     }
 
     void OpenPanel()

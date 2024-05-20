@@ -61,3 +61,11 @@ public class StatChangeEvent
         stat = _stat;
     }
 }
+
+public class PickupEvent{
+    public float proficiencyIncrease;
+    public PickupEvent(float _increase)
+    {
+        proficiencyIncrease = _increase;
+    }
+}

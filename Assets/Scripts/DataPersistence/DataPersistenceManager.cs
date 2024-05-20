@@ -59,7 +59,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             Debug.Log("No saved data");
             NewGame(saveSlot);
-            // SaveGame();
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
@@ -81,7 +80,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Debug.Log("Save");
+        Debug.Log("Save begin");
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileNames);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
@@ -89,9 +88,8 @@ public class DataPersistenceManager : MonoBehaviour
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            Debug.Log("foreach save");
+            Debug.Log("foreach: save " + dataPersistenceObj.ToString());
             dataPersistenceObj.SaveData(ref gameData);
-            Debug.Log(dataPersistenceObj.ToString());
         }
 
         dataHandler.Save(gameData, currentSaveSlot);

@@ -52,7 +52,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0facf4030db9f4a0a974746103027013, type: 2}
   - {fileID: 11400000, guid: 385d4d5fec3340845b8e5a318d6ea129, type: 2}
   - {fileID: 11400000, guid: 04b2a79426c4491488d54b5dd6dc9bef, type: 2}
-  itemNumToGenerate: 010000000100000001000000010000000100000001000000
+  itemNumToGenerate: 010000000200000001000000030000000100000002000000
+  itemChose: []
+  itemNumChose: 
 --- !u!1 &1557431768668304904
 GameObject:
   m_ObjectHideFlags: 0

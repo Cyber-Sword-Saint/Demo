@@ -9,15 +9,26 @@ using Newtonsoft.Json.Linq;
 public class InventorySaveManager : MonoBehaviour, IDataPersistence
 {
     public BasicInventory myInventory;
-    public Chest chestInventory;
+    public Chest ChestInventory;
     private int saveSlot;
     [SerializeField] private string[] fileNames;
     private string fullPath;
-    public static InventorySaveManager instance;
+    public static InventorySaveManager instance
+    {
+        get;
+        private set;
+    }
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
         saveSlot = DataPersistenceManager.instance.currentSaveSlot;
         fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
@@ -39,8 +50,16 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
         {
             FileStream file = File.Open(Application.persistentDataPath + "/chest.txt", FileMode.Open);
             
-            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), chestInventory);
-            file.Close();
+            if (this.ChestInventory != null)
+            {
+                JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), this.ChestInventory);
+                file.Close();
+            }
+            else
+            {
+                Debug.Log("chestInventory is null!");
+            }
+            
         }
     }
 
@@ -55,7 +74,7 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 
 
         var json1 = JsonUtility.ToJson(myInventory);
-        var json2 = JsonUtility.ToJson(chestInventory);
+        var json2 = JsonUtility.ToJson(ChestInventory);
 
         formatter.Serialize(file1, json1);
         formatter.Serialize(file2, json2);
@@ -84,6 +103,7 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 
     void SetFullPath(int saveSlot)
     {
+        fileNames = new string[] {"inventory1", "inventory2", "inventory3"};
         fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
 }

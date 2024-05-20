@@ -152,6 +152,7 @@ public class SelectedDivItemsController : MonoBehaviour
 
     public void StartsDivination()
     {
+        StopAllCoroutines();
         if(primary_item != null)
         {
             playerInventory.UseItem(primary_item);

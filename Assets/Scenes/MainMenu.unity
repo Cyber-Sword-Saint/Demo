@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInventory: {fileID: 11400000, guid: 0f485ba87e9474c4e9858b86105de8c2, type: 2}
-  chestInventory: {fileID: 0}
+  ChestInventory: {fileID: 11400000, guid: de4cfa8b7d3e93549ad05c0fd21f7af9, type: 2}
   fileNames:
   - inventory1
   - inventory2

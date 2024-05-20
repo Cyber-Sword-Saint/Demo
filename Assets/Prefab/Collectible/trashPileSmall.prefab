@@ -156,9 +156,9 @@ MonoBehaviour:
   currItem: {fileID: 0}
   inventory: {fileID: 0}
   prefabsToSpawn:
-  - {fileID: 116802890745698921, guid: af8f83e069fe64b358b82867663db39d, type: 3}
-  - {fileID: 116802890745698921, guid: 083b4a3370f0d42ea9b574751bbdf9ee, type: 3}
-  - {fileID: 116802890745698921, guid: cc5bafd4757ee4fde93aa965b49efc0b, type: 3}
-  - {fileID: 116802890745698921, guid: 4dafc429acb934cbbb6feaaaae37374c, type: 3}
+  - {fileID: 9138322715535160054, guid: 6770186d5bf624d9e88670996c83b269, type: 3}
+  - {fileID: 9138322715535160054, guid: 5289e66b119b8400d92306fec8112546, type: 3}
+  - {fileID: 9138322715535160054, guid: 640d374a51d37418c94d8b33c19990aa, type: 3}
+  - {fileID: 9138322715535160054, guid: 055e1a53c85f64f63a4c673d6095ad88, type: 3}
   pickupKey: 101
   pickupEffect: {fileID: 0}
