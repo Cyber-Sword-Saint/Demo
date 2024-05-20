@@ -12,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Grass
+  - Road
+  - Sea
   - 
   - 
   - 
@@ -59,4 +59,19 @@ TagManager:
     locked: 0
   - name: ui
     uniqueID: 2464465643
+    locked: 0
+  - name: beach
+    uniqueID: 2784673511
+    locked: 0
+  - name: building
+    uniqueID: 3052660043
+    locked: 0
+  - name: tree
+    uniqueID: 1486139327
+    locked: 0
+  - name: Plants
+    uniqueID: 3357698311
+    locked: 0
+  - name: Road
+    uniqueID: 1634811865
     locked: 0

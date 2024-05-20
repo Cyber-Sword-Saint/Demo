@@ -9,21 +9,38 @@ using Newtonsoft.Json.Linq;
 public class InventorySaveManager : MonoBehaviour, IDataPersistence
 {
     public BasicInventory myInventory;
-    public Chest chestInventory;
-
-    public static InventorySaveManager instance;
+    public Chest ChestInventory;
+    private int saveSlot;
+    [SerializeField] private string[] fileNames;
+    private string fullPath;
+    public static InventorySaveManager instance
+    {
+        get;
+        private set;
+    }
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+        saveSlot = DataPersistenceManager.instance.currentSaveSlot;
+        fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
     public void LoadData(GameData data)
     {
         BinaryFormatter bf = new BinaryFormatter();
+        SetFullPath(DataPersistenceManager.instance.currentSaveSlot);
+        Debug.Log(fullPath);
 
-        if (File.Exists(Application.persistentDataPath + "/inventory.txt"))
+        if (File.Exists(fullPath))
         {
-            FileStream file = File.Open(Application.persistentDataPath + "/inventory.txt", FileMode.Open);
+            FileStream file = File.Open(fullPath, FileMode.Open);
             
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), myInventory);
             file.Close();
@@ -33,22 +50,31 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
         {
             FileStream file = File.Open(Application.persistentDataPath + "/chest.txt", FileMode.Open);
             
-            JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), chestInventory);
-            file.Close();
+            if (this.ChestInventory != null)
+            {
+                JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), this.ChestInventory);
+                file.Close();
+            }
+            else
+            {
+                Debug.Log("chestInventory is null!");
+            }
+            
         }
     }
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log(Application.persistentDataPath);
+        SetFullPath(DataPersistenceManager.instance.currentSaveSlot);
+        Debug.Log(fullPath);
 
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file1 = File.Create(Application.persistentDataPath + "/inventory.txt");
+        FileStream file1 = File.Create(fullPath);
         FileStream file2 = File.Create(Application.persistentDataPath + "/chest.txt");
 
 
         var json1 = JsonUtility.ToJson(myInventory);
-        var json2 = JsonUtility.ToJson(chestInventory);
+        var json2 = JsonUtility.ToJson(ChestInventory);
 
         formatter.Serialize(file1, json1);
         formatter.Serialize(file2, json2);
@@ -58,18 +84,26 @@ public class InventorySaveManager : MonoBehaviour, IDataPersistence
 
     }
 
-    public void ResetData()
+    public void ResetData(int saveSlot)
     {
         myInventory.Clear();
         
         Debug.Log("Reset");
 
+        SetFullPath(saveSlot);
+
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/inventory.txt");
+        FileStream file = File.Create(fullPath);
 
         var json = JsonUtility.ToJson(myInventory);
         formatter.Serialize(file, json);
 
         file.Close();
+    }
+
+    void SetFullPath(int saveSlot)
+    {
+        fileNames = new string[] {"inventory1", "inventory2", "inventory3"};
+        fullPath = Path.Combine(Application.persistentDataPath, fileNames[saveSlot].ToString());
     }
 }

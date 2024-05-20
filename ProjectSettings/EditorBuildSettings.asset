@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NPCTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9008954a6883c4bfda33e0abb99af2be
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: f2247dc3d29d9ec4aad6fdfa024d6820
   m_configObjects:

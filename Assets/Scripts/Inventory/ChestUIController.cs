@@ -36,12 +36,12 @@ public class ChestUIController : MonoBehaviour
         // newItem.slotNum.text = instance.inventory.InventoryDict[item.itemName].ToString();
         newItem.slotNum.text = instance.inventory.itemNumList[instance.inventory.itemList.IndexOf(item)].ToString();
         
-        Debug.Log(item.itemName + ": " + instance.inventory.itemNumList[instance.inventory.itemList.IndexOf(item)].ToString());
+        // Debug.Log(item.itemName + ": " + instance.inventory.itemNumList[instance.inventory.itemList.IndexOf(item)].ToString());
     }
 
     public static void RefreshItem()
     {
-        Debug.Log("Refresh chest");
+        // Debug.Log("Refresh chest");
 
         for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
         {
@@ -58,7 +58,7 @@ public class ChestUIController : MonoBehaviour
             
         }
 
-        Debug.Log("Refresh chest done");
+        // Debug.Log("Refresh chest done");
 
 
     }
