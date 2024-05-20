@@ -12,7 +12,7 @@ NPC: Will you help me with your divination knowledge?
 -> Of course. Let me see what I can do.
     <<set $currentSpeaker = "NPC">>
     NPC: Thank you.
-    <<run_mini_game>>
+    <<start_divination_for_npc>>
 -> I'm sorry. Now is not the right time.
     <<set $currentSpeaker = "NPC">>
     NPC: I see. I 'll come back at a later time.

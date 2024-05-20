@@ -12,13 +12,19 @@ public class PickupController : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     // public BasicInventory inventory;
     public GameObject pickupEffect;
+    private SpriteRenderer spriteRenderer;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        // initialize overworld sprite
+        if(currItem != null)
+        {
+            spriteRenderer = this.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = currItem.overworldSprite;
+        }
     }
 
     private void Update()

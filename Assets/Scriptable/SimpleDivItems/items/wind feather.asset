@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: wind feather
   itemType: 0
   itemDescription: a feather
-  overworldSprite: {fileID: 21300000, guid: 40b445036f52b47a29f659503d13cc12, type: 3}
+  overworldSprite: {fileID: 21300000, guid: e6d9118ec71901f41a5730486ec935f9, type: 3}
   icon: {fileID: 21300000, guid: 40b445036f52b47a29f659503d13cc12, type: 3}
   divResult: the weather is nice today
   associatedDivItems: []

@@ -70,10 +70,10 @@ public class PickupEvent{
     }
 }
 
-public class NPCDialogueEvent
+public class NPCDivinationEvent
 {
     public NPCProfile currProfile;
-    public NPCDialogueEvent(NPCProfile _profile)
+    public NPCDivinationEvent(NPCProfile _profile)
     {
         currProfile = _profile;
     }

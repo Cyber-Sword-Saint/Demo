@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: star shards
   itemType: 1
   itemDescription: star shards
-  overworldSprite: {fileID: 21300000, guid: 392ad84535620408f8c744591427654a, type: 3}
+  overworldSprite: {fileID: 21300000, guid: f0bd951dcffb55242a50cd086a48b7f8, type: 3}
   icon: {fileID: 21300000, guid: 392ad84535620408f8c744591427654a, type: 3}
   divResult: 
   associatedDivItems: []
