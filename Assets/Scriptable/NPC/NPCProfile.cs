@@ -19,6 +19,7 @@ public class NPCProfile : ScriptableObject
     public string dialougeNode;
     [Header("NPC Divnination Settings")]
     public List<Item> itemsToUseForDivination;
+    public List<NPCInfo> npcInfoList;
 }
 
 public enum NPCType

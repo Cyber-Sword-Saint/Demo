@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11599db8957794688ad30890ad91e75e, type: 3}
+  m_Name: test_info_1
+  m_EditorClassIdentifier: 
+  infoDescription: 'Her husband is a sewage worker whose recent leg injury prevtend
+    him from going to work. She had to take care of him on a daliy basis and their
+    sole income is the relief fund provided by the church. '
+  sigilColor: {r: 1, g: 0.9454185, b: 0, a: 0}
+  isCollected: 0
+  sourceType: 0

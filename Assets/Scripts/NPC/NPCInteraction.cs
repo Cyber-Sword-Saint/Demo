@@ -5,15 +5,20 @@ using Yarn.Unity;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public string startNode = "Test";
+    public NPCProfile currProfile;
+    public KeyCode interactionKey = KeyCode.E;
+    [SerializeField]
+    private string startNode = "Test";
     private bool playerInRange = false;
     private DialogueRunner dialogueRunner;
-    public KeyCode interactionKey = KeyCode.E;
+
 
     private void Start()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         Debug.Log($"DialogueRunnerFound: {dialogueRunner}");
+        startNode = currProfile.dialougeNode;
+        dialogueRunner.AddCommandHandler("start_divination_for_npc", StartDivinationForNPC);
     }
 
     void Update()
@@ -43,5 +48,10 @@ public class NPCInteraction : MonoBehaviour
     private void StartDialogue()
     {
         dialogueRunner.StartDialogue(startNode);
+    }
+
+    private void StartDivinationForNPC()
+    {
+        EventBus.Publish(new NPCDivinationEvent(currProfile));
     }
 }

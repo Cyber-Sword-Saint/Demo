@@ -15,7 +15,7 @@ public class MiniGamePanelController : MonoBehaviour
     {
         miniGameController = view.GetComponent<MiniGameController>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.AddCommandHandler("run_mini_game", RunMiniGame);
+        //dialogueRunner.AddCommandHandler("run_mini_game", RunMiniGame);
     }
 
     // Update is called once per frame

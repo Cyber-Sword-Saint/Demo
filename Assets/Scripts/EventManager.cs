@@ -69,3 +69,12 @@ public class PickupEvent{
         proficiencyIncrease = _increase;
     }
 }
+
+public class NPCDialogueEvent
+{
+    public NPCProfile currProfile;
+    public NPCDialogueEvent(NPCProfile _profile)
+    {
+        currProfile = _profile;
+    }
+}
