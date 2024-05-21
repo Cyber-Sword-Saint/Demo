@@ -15,5 +15,5 @@ MonoBehaviour:
   infoDescription: She has a great relationship with her daugher but she often feels
     gulity that their impoverishment might be a burden to her daughter.
   sigilColor: {r: 0.4433962, g: 0.100491785, b: 0.0020914965, a: 0}
-  isCollected: 0
+  isCollected: 1
   sourceType: 2

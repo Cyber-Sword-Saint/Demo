@@ -33,15 +33,15 @@ public class PlayerStats : MonoBehaviour
         pick_up_event_subscription = EventBus.Subscribe<PickupEvent>(GatheringSkillStatChange);
 
         // Initialize skill title and description
-        currDivinationTitle = DivinationTitle[0];
-        currDivinationLevelDescription = DivinationLevelDescription[0];
-        currGathererTitle = GathererTitle[0];
-        currGatheringLevelDescription = GatheringLevelDescription[0];
+
     }
 
     private void Start()
     {
-       
+        currDivinationTitle = DivinationTitle[0];
+        currDivinationLevelDescription = DivinationLevelDescription[0];
+        currGathererTitle = GathererTitle[0];
+        currGatheringLevelDescription = GatheringLevelDescription[0];
     }
 
     private void Update()

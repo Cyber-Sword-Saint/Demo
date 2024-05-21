@@ -183,25 +183,33 @@ MonoBehaviour:
   currGathererTitle: 
   currGatheringLevelDescription: 
   DivinationTitle:
-  - 
-  - 
-  - 
-  - 
+  - Vision Initiate
+  - 'Mystic Explorer '
+  - Fate Weaver
+  - Divination Master
   DivinationLevelDescription:
-  - 
-  - 
-  - 
-  - 
+  - ' Just beginning to explore the world of divination, curious about supernatural
+    phenomena.'
+  - Starts to unveil the mysteries through practice, gradually understanding the
+    basics of divination.
+  - Capable of accurately interpreting signs of fate, with significant impact from
+    divination results, earning respect from people.
+  - ' Mastered advanced divination techniques, able to foresee major events, highly
+    sought after by seekers from various regions.'
   GathererTitle:
-  - 
-  - 
-  - 
-  - 
+  - Pathfinder
+  - Resource Hunter
+  - 'Treasure Expert '
+  - Guardian of Nature
   GatheringLevelDescription:
-  - 
-  - 
-  - 
-  - 
+  - A beginner exploring the surroundings, learning basic gathering skills. Whether
+    it's herbs, refuse, or lost small items, all are subjects of their study.
+  - Capable of finding valuable resources in both urban and natural settings. They
+    know where forgotten treasures or useful scraps might be hidden.
+  - ' A professional gatherer, not only skilled in acquiring natural resources but
+    also adept at discovering and recovering ancient or hidden treasures.'
+  - 'Guardian of Nature (Level 4): Not only masters of gathering but also protectors
+    of nature.'
 --- !u!1 &4357232065326729715
 GameObject:
   m_ObjectHideFlags: 0

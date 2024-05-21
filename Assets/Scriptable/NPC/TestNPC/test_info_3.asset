@@ -16,5 +16,5 @@ MonoBehaviour:
     fund. They are planning to cut it for whoever cannot provide any labor services
     to the government.
   sigilColor: {r: 0.5673561, g: 0, b: 1, a: 0}
-  isCollected: 0
+  isCollected: 1
   sourceType: 1

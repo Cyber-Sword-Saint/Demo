@@ -11,6 +11,8 @@ public class SelectedDivItemsController : MonoBehaviour
     public GameObject secondaryDivView;
     public TextMeshProUGUI divResult;
     public BasicInventory playerInventory;
+    public bool isNPCDiv = false;
+    public MiniGamePanelController miniGamePanelController;
 
     [Header("Private Variables")]
     [SerializeField]
@@ -165,16 +167,25 @@ public class SelectedDivItemsController : MonoBehaviour
             DestroyImmediate(secondary_icon, true);
         }
 
-        if(primary_item != null && secondary_item == null)
+        if (!isNPCDiv)
         {
-            Debug.Log($"Simple div with {primary_item} selected");
-            divResult.text = primary_item.divResult;
+
+            if (primary_item != null && secondary_item == null)
+            {
+                Debug.Log($"Simple div with {primary_item} selected");
+                divResult.text = primary_item.divResult;
+            }
+
+            else
+            {
+                Debug.Log($"Simple div with {primary_item} and {secondary_item} selected");
+                divResult.text = " This is a temp placeholder text";
+            }
         }
 
-        else
+        if (isNPCDiv)
         {
-            Debug.Log($"Simple div with {primary_item} and {secondary_item} selected");
-            divResult.text = " This is a temp placeholder text";
+            miniGamePanelController.RunMiniGame();
         }
        
        

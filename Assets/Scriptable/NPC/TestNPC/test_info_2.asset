@@ -15,5 +15,5 @@ MonoBehaviour:
   infoDescription: Her daugher works in the castle and she takes great pride in her
     daugter.
   sigilColor: {r: 0.4056604, g: 0.22663774, b: 0, a: 0}
-  isCollected: 0
+  isCollected: 1
   sourceType: 2

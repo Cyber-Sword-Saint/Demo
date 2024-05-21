@@ -7,6 +7,7 @@ public class MiniGamePanelController : MonoBehaviour
 {
     public KeyCode key;
     public GameObject view;
+    public GameObject npcDivView;
     private MiniGameController miniGameController;
     private DialogueRunner dialogueRunner;
     
@@ -36,8 +37,9 @@ public class MiniGamePanelController : MonoBehaviour
         }
     }
 
-    void RunMiniGame()
+    public void RunMiniGame()
     {
+        npcDivView.SetActive(false);
         OpenPanel();
     }
 

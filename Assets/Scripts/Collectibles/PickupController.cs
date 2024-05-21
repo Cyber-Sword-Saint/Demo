@@ -9,6 +9,7 @@ public class PickupController : MonoBehaviour
     private bool isCollected;
     private bool isInRange;
     public Item currItem;
+    public NPCInfo currNPCInfo;
     public KeyCode pickupKey = KeyCode.E;
     // public BasicInventory inventory;
     public GameObject pickupEffect;
@@ -32,6 +33,11 @@ public class PickupController : MonoBehaviour
         if ((Input.GetKeyDown(pickupKey) || Input.GetButtonDown("PickUp")) && !isCollected && isInRange)
         {
             isCollected = true;
+
+            if(currNPCInfo != null)
+            {
+                currNPCInfo.isCollected = true;
+            }
             
             Destroy(gameObject);
 
