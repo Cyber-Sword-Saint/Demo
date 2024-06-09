@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FollowThePath : MonoBehaviour
 {
+    public KeyCode hitKey;
+    public GameObject hitPrefab;
     public bool reverserPath = false;
     public float hitThreshold = 0.2f; // Threshold distance to consider a hi
     // Array of waypoints to walk from one to the next one
@@ -39,6 +41,10 @@ public class FollowThePath : MonoBehaviour
     private void Update()
     {
         Move();
+        if (Input.GetKeyDown(hitKey))
+        {
+            CheckHit();
+        }
     }
 
     private void Move()
@@ -86,6 +92,7 @@ public class FollowThePath : MonoBehaviour
     {
         Transform targetWaypoint = waypoints[waypointIndex].transform;
         float distance = Vector2.Distance(transform.position, targetWaypoint.position);
+        Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
 
         if (distance <= hitThreshold)
         {
