@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowThePath : MonoBehaviour
 {
     public bool reverserPath = false;
+    public float hitThreshold = 0.2f; // Threshold distance to consider a hi
     // Array of waypoints to walk from one to the next one
     [SerializeField]
     private GameObject[] waypoints;
@@ -21,7 +22,7 @@ public class FollowThePath : MonoBehaviour
     private void Start()
     {
         waypoints = GameObject.FindGameObjectsWithTag("waypoint");
-        // Set position of Enemy as position of the first waypoint
+        //initialize orb position
         if (!reverserPath)
         {
             transform.position = waypoints[waypointIndex].transform.position;
@@ -78,6 +79,29 @@ public class FollowThePath : MonoBehaviour
             {
                 waypointIndex -= 1;
             }
+        }
+    }
+  
+    void CheckHit()
+    {
+        Transform targetWaypoint = waypoints[waypointIndex].transform;
+        float distance = Vector2.Distance(transform.position, targetWaypoint.position);
+
+        if (distance <= hitThreshold)
+        {
+            Debug.Log("Perfect!");
+        }
+        else if (distance <= hitThreshold * 1.5f)
+        {
+            Debug.Log("Excellent!");
+        }
+        else if (distance <= hitThreshold * 2f)
+        {
+            Debug.Log("Fair!");
+        }
+        else
+        {
+            Debug.Log("Fail!");
         }
     }
 }
