@@ -69,3 +69,17 @@ public class PickupEvent{
         proficiencyIncrease = _increase;
     }
 }
+
+public class HitZoneExitEvent
+{
+    public HitZoneExitEvent() { }
+}
+
+public class HitZoneResultEvent
+{
+    public string message;
+    public HitZoneResultEvent(string _message)
+    {
+        message = _message;
+    }
+}

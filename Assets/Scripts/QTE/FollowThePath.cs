@@ -1,114 +1,180 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FollowThePath : MonoBehaviour
 {
     public KeyCode hitKey;
     public GameObject hitPrefab;
+    public TextMeshProUGUI resultText;
     public bool reverserPath = false;
-    public float hitThreshold = 0.2f; // Threshold distance to consider a hi
+    public float hitThreshold = 0.2f; // Threshold distance to consider a hit
     // Array of waypoints to walk from one to the next one
     [SerializeField]
     private GameObject[] waypoints;
 
     // Walk speed that can be set in Inspector
     [SerializeField]
-    private float moveSpeed = 2f;
+    private float move_speed = 2f;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
-    private int waypointIndex = 0;
+    private int waypoint_index = 0;
+
+    private bool ready_to_hit = false;
+
+    private bool can_move = true;
+
+    private bool hit_pressed = false;
+
+    private int curr_hit_zone_index = 0;
+
+    Subscription<HitZoneExitEvent> exit_hit_zone_event_subscription;
 
     // Use this for initialization
     private void Start()
     {
         waypoints = GameObject.FindGameObjectsWithTag("waypoint");
+        exit_hit_zone_event_subscription = EventBus.Subscribe<HitZoneExitEvent>(OnHitZoneExit);
         //initialize orb position
         if (!reverserPath)
         {
-            transform.position = waypoints[waypointIndex].transform.position;
+            transform.position = waypoints[waypoint_index].transform.position;
         }
 
         else
         {
             transform.position = waypoints[waypoints.Length - 1].transform.position;
-            waypointIndex = waypoints.Length - 1;
+            waypoint_index = waypoints.Length - 1;
         }
+
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Move();
-        if (Input.GetKeyDown(hitKey))
+        if (can_move) { Move(); }
+
+        if(can_move && ready_to_hit)
         {
-            CheckHit();
+            hit_pressed = false;
+            // If hit button is pressed
+            if (Input.GetKeyDown(hitKey))
+            {
+                hit_pressed = true;
+                Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
+                ready_to_hit = false;
+                CheckHit();
+            }
+        }
+
+        if (!can_move)
+        {
+            //publish end of game event
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ready_to_hit = true;
+        curr_hit_zone_index = waypoint_index;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        ready_to_hit = false;
+        //Publish Exit Event for calling checkhit
+        EventBus.Publish(new HitZoneExitEvent());
+    }
+
+
 
     private void Move()
     {
         // If orb didn't reach last waypoint it can move
         // If orb reached last waypoint then it stops
-        if (!reverserPath)
-        {
-            if (waypointIndex < waypoints.Length)
+        if (!reverserPath) { 
+            if (waypoint_index < waypoints.Length)
             {
-                Debug.Log($"movetowards {waypointIndex}");
+                can_move = true;
                 // Move orb from current waypoint to the next one
                 // using MoveTowards method
                 transform.position = Vector3.MoveTowards(transform.position,
-                   waypoints[waypointIndex].transform.position,
-                   moveSpeed * Time.deltaTime);
+                   waypoints[waypoint_index].transform.position,
+                   move_speed * Time.deltaTime);
                 // If orb reaches position of waypoint he walked towards
                 // then waypointIndex is increased by 1
                 // and  starts to walk to the next waypoint
-                if (transform.position == waypoints[waypointIndex].transform.position)
+                if (transform.position == waypoints[waypoint_index].transform.position)
                 {
-                    Debug.Log($"reached {waypointIndex}");
-                    waypointIndex += 1;
+                    waypoint_index += 1;
                 }
+            }
+            else
+            {
+                can_move = false;
             }
         }
 
         else
         {
-            if(waypointIndex > 0)
+            if(waypoint_index > 0)
             {
+                can_move = true;
                 transform.position = Vector3.MoveTowards(transform.position,
-                    waypoints[waypointIndex].transform.position,
-                    moveSpeed * Time.deltaTime);
+                    waypoints[waypoint_index].transform.position,
+                    move_speed * Time.deltaTime);
+            }
+            else
+            {
+                can_move = false;
             }
 
-            if(transform.position == waypoints[waypointIndex].transform.position)
+            if(transform.position == waypoints[waypoint_index].transform.position)
             {
-                waypointIndex -= 1;
+                waypoint_index -= 1;
             }
         }
     }
   
     void CheckHit()
     {
-        Transform targetWaypoint = waypoints[waypointIndex].transform;
+        Transform targetWaypoint = waypoints[waypoint_index].transform;
         float distance = Vector2.Distance(transform.position, targetWaypoint.position);
-        Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
+        string curr_result = "";
 
         if (distance <= hitThreshold)
         {
             Debug.Log("Perfect!");
+            curr_result = "Perfect!";
         }
         else if (distance <= hitThreshold * 1.5f)
         {
             Debug.Log("Excellent!");
+            curr_result = "Excellent!";
         }
         else if (distance <= hitThreshold * 2f)
         {
             Debug.Log("Fair!");
+            curr_result = "Fair!";
         }
         else
         {
             Debug.Log("Fail!");
+            curr_result = "Fail!";
+        }
+        EventBus.Publish(new HitZoneResultEvent(curr_result));
+    }
+
+    void OnHitZoneExit(HitZoneExitEvent e)
+    {
+        string curr_result = "";
+        if (!hit_pressed)
+        {
+            Debug.Log("Missed!");
+            curr_result = "Fail!";
+            EventBus.Publish(new HitZoneResultEvent(curr_result));
         }
     }
 }
