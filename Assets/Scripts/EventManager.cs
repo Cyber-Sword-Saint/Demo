@@ -78,8 +78,15 @@ public class HitZoneExitEvent
 public class HitZoneResultEvent
 {
     public string message;
-    public HitZoneResultEvent(string _message)
+    public float accuracy;
+    public HitZoneResultEvent(string _message,float _accuracy)
     {
         message = _message;
+        accuracy = _accuracy;
     }
+}
+
+public class QteEndEvent
+{
+    public QteEndEvent(){}
 }

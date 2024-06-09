@@ -9,7 +9,7 @@ public class FollowThePath : MonoBehaviour
     public GameObject hitPrefab;
     public TextMeshProUGUI resultText;
     public bool reverserPath = false;
-    public float hitThreshold = 0.2f; // Threshold distance to consider a hit
+    public float hitThreshold = 0.1f; // Threshold distance to consider a hit
     // Array of waypoints to walk from one to the next one
     [SerializeField]
     private GameObject[] waypoints;
@@ -28,7 +28,7 @@ public class FollowThePath : MonoBehaviour
 
     private bool hit_pressed = false;
 
-    private int curr_hit_zone_index = 0;
+    private Transform curr_hit_zone_transform;
 
     Subscription<HitZoneExitEvent> exit_hit_zone_event_subscription;
 
@@ -56,7 +56,7 @@ public class FollowThePath : MonoBehaviour
     {
         if (can_move) { Move(); }
 
-        if(can_move && ready_to_hit)
+        if (can_move && ready_to_hit)
         {
             hit_pressed = false;
             // If hit button is pressed
@@ -68,17 +68,12 @@ public class FollowThePath : MonoBehaviour
                 CheckHit();
             }
         }
-
-        if (!can_move)
-        {
-            //publish end of game event
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ready_to_hit = true;
-        curr_hit_zone_index = waypoint_index;
+        curr_hit_zone_transform = collision.gameObject.transform;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -114,6 +109,7 @@ public class FollowThePath : MonoBehaviour
             else
             {
                 can_move = false;
+                EventBus.Publish(new QteEndEvent());
             }
         }
 
@@ -129,6 +125,7 @@ public class FollowThePath : MonoBehaviour
             else
             {
                 can_move = false;
+                EventBus.Publish(new QteEndEvent());
             }
 
             if(transform.position == waypoints[waypoint_index].transform.position)
@@ -140,7 +137,7 @@ public class FollowThePath : MonoBehaviour
   
     void CheckHit()
     {
-        Transform targetWaypoint = waypoints[waypoint_index].transform;
+        Transform targetWaypoint = curr_hit_zone_transform;
         float distance = Vector2.Distance(transform.position, targetWaypoint.position);
         string curr_result = "";
 
@@ -149,12 +146,12 @@ public class FollowThePath : MonoBehaviour
             Debug.Log("Perfect!");
             curr_result = "Perfect!";
         }
-        else if (distance <= hitThreshold * 1.5f)
+        else if (distance <= hitThreshold * 3f)
         {
             Debug.Log("Excellent!");
             curr_result = "Excellent!";
         }
-        else if (distance <= hitThreshold * 2f)
+        else if (distance <= hitThreshold * 5f)
         {
             Debug.Log("Fair!");
             curr_result = "Fair!";
@@ -164,7 +161,7 @@ public class FollowThePath : MonoBehaviour
             Debug.Log("Fail!");
             curr_result = "Fail!";
         }
-        EventBus.Publish(new HitZoneResultEvent(curr_result));
+        EventBus.Publish(new HitZoneResultEvent(curr_result,(1-distance)));
     }
 
     void OnHitZoneExit(HitZoneExitEvent e)
@@ -173,8 +170,8 @@ public class FollowThePath : MonoBehaviour
         if (!hit_pressed)
         {
             Debug.Log("Missed!");
-            curr_result = "Fail!";
-            EventBus.Publish(new HitZoneResultEvent(curr_result));
+            curr_result = "Miss!";
+            EventBus.Publish(new HitZoneResultEvent(curr_result,0));
         }
     }
 }
