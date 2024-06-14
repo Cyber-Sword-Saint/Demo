@@ -1,19 +1,16 @@
 ﻿title: Test
-tags:
 ---
 <<declare $currentSpeaker = "NPC">>
-
 <<set $currentSpeaker = "NPC">>
-NPC: Hi, I'm deeply troubled lately.
-NPC: Too much is going on with my life but I have no one to talk to...
-NPC: I heard that you are one of those witches gifted with the talent of future telling.
-NPC: Will you help me with your divination knowledge?
+NPC: 我的梦想是种一片花田，但是我经验不足，总是忧虑种种不好的情况.
+NPC: 请问您可以为我占卜一下吗?这是我带来的信物:我最喜欢的风铃花。
 <<set $currentSpeaker = "Player">>
--> Of course. Let me see what I can do.
+-> 好的，我来为您占卜。
     <<set $currentSpeaker = "NPC">>
-    NPC: Thank you.
+    NPC: 谢谢。
     <<run_mini_game>>
--> I'm sorry. Now is not the right time.
+-> 很抱歉，暂时不行。
     <<set $currentSpeaker = "NPC">>
-    NPC: I see. I 'll come back at a later time.
+    NPC: 好吧……那我之后再来碰碰运气.
+    
 ===
