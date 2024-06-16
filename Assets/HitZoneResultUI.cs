@@ -8,7 +8,6 @@ using System;
 public class HitZoneResultUI : MonoBehaviour
 {
     private TextMeshProUGUI textMeshPro;
-
     Subscription<HitZoneResultEvent> hit_zone_result_subscription;
     Subscription<QteEndEvent> qte_end_subscription;
     [SerializeField]
@@ -50,21 +49,25 @@ public class HitZoneResultUI : MonoBehaviour
         if(overallAccuracy > 80)
         {
             msg = $"Perfect Divination \n You achieved {roundedAccuracy}% on accuracy.";
+            EventBus.Publish(new DivinationResultIndexEvent(0));
         }
 
         else if (overallAccuracy > 60)
         {
             msg = $"Excellent Divination \n You achieved {roundedAccuracy}% on accuracy.";
+            EventBus.Publish(new DivinationResultIndexEvent(1));
         }
 
         else if (overallAccuracy > 40)
         {
             msg = $"Average Divination \n You achieved {roundedAccuracy}% on accuracy.";
+            EventBus.Publish(new DivinationResultIndexEvent(2));
         }
 
         else
         {
             msg = $"Failed Divination \n You achieved {roundedAccuracy}% on accuracy.";
+            EventBus.Publish(new DivinationResultIndexEvent(3));
         }
 
         textMeshPro.text = msg;

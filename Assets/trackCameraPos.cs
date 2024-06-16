@@ -9,6 +9,7 @@ public class trackCameraPos : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        this.transform.localPosition = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, this.transform.position.z);
     }
     // Update is called once per frame
     void Update()

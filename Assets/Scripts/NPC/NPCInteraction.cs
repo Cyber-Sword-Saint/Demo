@@ -9,11 +9,22 @@ public class NPCInteraction : MonoBehaviour
     private bool playerInRange = false;
     private DialogueRunner dialogueRunner;
     public KeyCode interactionKey = KeyCode.E;
+    public List<string> DivinationResultNodes;
+    /* 0:perfet 
+     * 1:exerllent 
+     * 2:fair 
+     * 3:failure*/
+    [SerializeField] private NPCController npcController;
+    Subscription<DivinationResultIndexEvent> divination_result_subscription;
+    
+
 
     private void Start()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         Debug.Log($"DialogueRunnerFound: {dialogueRunner}");
+        npcController = this.gameObject.GetComponent<NPCController>();
+        divination_result_subscription = EventBus.Subscribe<DivinationResultIndexEvent>(DisplayDivinationResult);
     }
 
     void Update()
@@ -43,5 +54,11 @@ public class NPCInteraction : MonoBehaviour
     private void StartDialogue()
     {
         dialogueRunner.StartDialogue(startNode);
+        npcController.stopMoving = true;
+    }
+
+    private void DisplayDivinationResult(DivinationResultIndexEvent e)
+    {
+        EventBus.Publish(new DivinationResultStringEvent(DivinationResultNodes[e.index]));
     }
 }

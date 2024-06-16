@@ -9,6 +9,12 @@ public class MiniGamePanelController : MonoBehaviour
     public GameObject view;
     private MiniGameController miniGameController;
     private DialogueRunner dialogueRunner;
+    [SerializeField]
+    private bool canBeDiabledByPlayerInput = false;
+    Subscription<QteEndEvent> qte_end_subscription;
+    Subscription<DivinationResultStringEvent> divination_result_subscriptoin;
+    [SerializeField]
+    private string resultDialogueNode = "";
     
     // Start is called before the first frame update
     void Start()
@@ -16,22 +22,23 @@ public class MiniGamePanelController : MonoBehaviour
         miniGameController = view.GetComponent<MiniGameController>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         dialogueRunner.AddCommandHandler("run_mini_game", RunMiniGame);
+        qte_end_subscription = EventBus.Subscribe<QteEndEvent>(OnQteEnd);
+        divination_result_subscriptoin = EventBus.Subscribe<DivinationResultStringEvent>(OnDivinationResultReceived);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(key) && canBeDiabledByPlayerInput)
         {
-            Debug.Log($"toggling {view.name} ");
-            if (!view.activeSelf)
-            {
-                OpenPanel();
-            }
-
-            else
+            if(view.activeSelf)
             {
                 ClosePanel();
+                if (resultDialogueNode.Length > 0)
+                {
+                    dialogueRunner.StartDialogue(resultDialogueNode);
+                }
             }
         }
     }
@@ -48,7 +55,19 @@ public class MiniGamePanelController : MonoBehaviour
 
     void ClosePanel()
     {
-        miniGameController.RestGame();
+        //miniGameController.RestGame();
         view.SetActive(false);
     }
+
+    void OnQteEnd(QteEndEvent e)
+    {
+        canBeDiabledByPlayerInput = true;
+    }
+
+    void OnDivinationResultReceived(DivinationResultStringEvent e)
+    {
+        //TODO
+        resultDialogueNode = e.nodeName;
+    }
+    
 }

@@ -63,7 +63,7 @@ public class FollowThePath : MonoBehaviour
             if (Input.GetKeyDown(hitKey))
             {
                 hit_pressed = true;
-                Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
+               GameObject hitMark =  Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
                 ready_to_hit = false;
                 CheckHit();
             }
@@ -161,6 +161,7 @@ public class FollowThePath : MonoBehaviour
             Debug.Log("Fail!");
             curr_result = "Fail!";
         }
+
         EventBus.Publish(new HitZoneResultEvent(curr_result,(1-distance)));
     }
 
