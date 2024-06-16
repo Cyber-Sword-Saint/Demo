@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 586600615}
   - component: {fileID: 586600616}
   - component: {fileID: 586600617}
+  - component: {fileID: 586600618}
   m_Layer: 0
   m_Name: hit
   m_TagString: waypoint
@@ -506,6 +507,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &586600618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586600614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ec5ad0d1bfc4636b8777b91eb60c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &643708132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2312,7 @@ GameObject:
   - component: {fileID: 2102013568}
   - component: {fileID: 2102013569}
   - component: {fileID: 2102013570}
+  - component: {fileID: 2102013571}
   m_Layer: 0
   m_Name: hit
   m_TagString: waypoint
@@ -2389,6 +2403,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &2102013571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102013567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ec5ad0d1bfc4636b8777b91eb60c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &3206743677089438155
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -952,6 +952,7 @@ GameObject:
   - component: {fileID: 1159396997734826377}
   - component: {fileID: 1159396997734826374}
   - component: {fileID: 1159396997734826375}
+  - component: {fileID: 1314563010958202823}
   m_Layer: 0
   m_Name: hit
   m_TagString: waypoint
@@ -1042,6 +1043,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &1314563010958202823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159396997734826376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ec5ad0d1bfc4636b8777b91eb60c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159396997791966666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1978,7 @@ GameObject:
   - component: {fileID: 1159396998414041006}
   - component: {fileID: 1159396998414041007}
   - component: {fileID: 1159396998414041004}
+  - component: {fileID: 443992386756539370}
   m_Layer: 0
   m_Name: hit
   m_TagString: waypoint
@@ -2055,6 +2069,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &443992386756539370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159396998414040913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ec5ad0d1bfc4636b8777b91eb60c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159396998567786195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,6 +2276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3089664393626004020}
+  - component: {fileID: 385358123}
   m_Layer: 0
   m_Name: qtePanel
   m_TagString: Untagged
@@ -2273,6 +2300,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &385358123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717298325212564130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20cd456e244049f0846d5ee29992913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 32
+  view: {fileID: 8191832539487739591}
+  canBeDiabledByPlayerInput: 0
+  resultDialogueNode: 
 --- !u!1 &8191832539487739591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,7 +2331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8098589023372731005
 Transform:
   m_ObjectHideFlags: 0

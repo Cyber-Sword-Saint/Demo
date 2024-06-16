@@ -72,15 +72,21 @@ public class FollowThePath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ready_to_hit = true;
-        curr_hit_zone_transform = collision.gameObject.transform;
+        if (collision.gameObject.GetComponent<HitPoint>() != null)
+        {
+            ready_to_hit = true;
+            curr_hit_zone_transform = collision.gameObject.transform;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        ready_to_hit = false;
-        //Publish Exit Event for calling checkhit
-        EventBus.Publish(new HitZoneExitEvent());
+        if (collision.gameObject.GetComponent<HitPoint>() != null)  
+        {
+            ready_to_hit = false;
+            //Publish Exit Event for calling checkhit
+            EventBus.Publish(new HitZoneExitEvent());
+        }
     }
 
 
