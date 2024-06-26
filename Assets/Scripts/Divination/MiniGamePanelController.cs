@@ -69,5 +69,4 @@ public class MiniGamePanelController : MonoBehaviour
         //TODO
         resultDialogueNode = e.nodeName;
     }
-    
 }
