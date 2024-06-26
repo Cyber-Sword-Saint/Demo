@@ -81,7 +81,7 @@ public class FollowThePath : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<HitPoint>() != null)        
+        if (collision.gameObject.GetComponent<HitPoint>() != null)  
         {
             ready_to_hit = false;
             //Publish Exit Event for calling checkhit
