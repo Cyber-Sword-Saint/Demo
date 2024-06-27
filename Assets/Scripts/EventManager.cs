@@ -86,6 +86,11 @@ public class HitZoneResultEvent
     }
 }
 
+public class QteStartEvent
+{
+    public QteStartEvent() { }
+}
+
 public class QteEndEvent
 {
     public QteEndEvent(){}

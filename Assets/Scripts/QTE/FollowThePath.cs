@@ -64,6 +64,7 @@ public class FollowThePath : MonoBehaviour
             {
                 hit_pressed = true;
                GameObject hitMark =  Instantiate(hitPrefab, GetComponentInParent<Transform>().position, Quaternion.identity);
+                hitMark.transform.parent = this.gameObject.transform.parent;
                 ready_to_hit = false;
                 CheckHit();
             }
