@@ -11,12 +11,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NPCTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9008954a6883c4bfda33e0abb99af2be
   - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: f2247dc3d29d9ec4aad6fdfa024d6820
+  - enabled: 1
+    path: Assets/Scenes/FeatureMerge.unity
+    guid: 627e264a07e664ac0a4625292a3c555b
+  - enabled: 1
+    path: Assets/Scenes/Indoor_Merge.unity
+    guid: 6aab0aaf5d3e34cffa30076751227417
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2ab01a82c190d70408f4090a46c8ecc9, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 95f68d01abc2c164aa01cf084602612f, type: 2}
