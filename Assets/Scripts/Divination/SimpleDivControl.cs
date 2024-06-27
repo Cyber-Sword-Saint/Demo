@@ -8,12 +8,10 @@ public class SimpleDivControl : MonoBehaviour
     public GameObject view;
     public GameObject NPCDivView;
     public SelectedDivItemsController divItemsController;
-    Subscription<NPCDivinationEvent> npc_divination_event_subscription;
     // Start is called before the first frame update
     void Start()
     {
         closeSimpleDivPanel();
-        npc_divination_event_subscription = EventBus.Subscribe<NPCDivinationEvent>(ShowNPCDivView);
     }
 
     // Update is called once per frame
@@ -46,11 +44,11 @@ public class SimpleDivControl : MonoBehaviour
         view.SetActive(false);
     }
 
-    void ShowNPCDivView(NPCDivinationEvent e)
+    /*void ShowNPCDivView(NPCDivinationEvent e)
     {
         NPCDivView.SetActive(true);
         view.SetActive(false);
         //Populate npcInfo 
         NPCDivView.GetComponent<CharInfoEntryController>().ShowCurrNPCInfo(e.currProfile);
-    }
+    }*/
 }

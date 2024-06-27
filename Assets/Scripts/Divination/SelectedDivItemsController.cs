@@ -183,10 +183,10 @@ public class SelectedDivItemsController : MonoBehaviour
             }
         }
 
-        if (isNPCDiv)
+        /*if (isNPCDiv)
         {
             miniGamePanelController.RunMiniGame();
-        }
+        }*/
        
        
         StartCoroutine(eraseText(3f));
