@@ -11,11 +11,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     public string currDivinationTitle;
     public string currDivinationLevelDescription;
-    public string currGatheringTitle;
+    public string currGathererTitle;
     public string currGatheringLevelDescription;
     public List<string> DivinationTitle;
     public List<string> DivinationLevelDescription;
-    public List<string> GatheringTitle;
+    public List<string> GathererTitle;
     public List<string> GatheringLevelDescription;
     Subscription<DivinationEvent> divination_event_subscription;
     Subscription<PickupEvent> pick_up_event_subscription;
@@ -33,15 +33,15 @@ public class PlayerStats : MonoBehaviour
         pick_up_event_subscription = EventBus.Subscribe<PickupEvent>(GatheringSkillStatChange);
 
         // Initialize skill title and description
-        currDivinationTitle = DivinationTitle[0];
-        currDivinationLevelDescription = DivinationLevelDescription[0];
-        currGatheringTitle = GatheringTitle[0];
-        currGatheringLevelDescription = GatheringLevelDescription[0];
+
     }
 
     private void Start()
     {
-       
+        currDivinationTitle = DivinationTitle[0];
+        currDivinationLevelDescription = DivinationLevelDescription[0];
+        currGathererTitle = GathererTitle[0];
+        currGatheringLevelDescription = GatheringLevelDescription[0];
     }
 
     private void Update()
@@ -99,21 +99,21 @@ public class PlayerStats : MonoBehaviour
         if(GatheringSkill.currVal == 150)
         {
             // TODO level 2
-            currGatheringTitle = GatheringTitle[1];
+            currGathererTitle = GathererTitle[1];
             currGatheringLevelDescription = GatheringLevelDescription[1];
         }
 
         if(GatheringSkill.currVal == 450)
         {
             // TODO level 3
-            currGatheringTitle = GatheringTitle[1];
+            currGathererTitle = GathererTitle[1];
             currGatheringLevelDescription = GatheringLevelDescription[1];
         }
 
         if(GatheringSkill.currVal == 900)
         {
             // TODO level 4
-            currGatheringTitle = GatheringTitle[1];
+            currGathererTitle = GathererTitle[1];
             currGatheringLevelDescription = GatheringLevelDescription[1];
         }
 

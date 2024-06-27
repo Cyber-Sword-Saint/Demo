@@ -49,20 +49,17 @@ TagManager:
   - name: grass
     uniqueID: 3661992905
     locked: 0
-  - name: shadow
-    uniqueID: 2722302657
+  - name: beach
+    uniqueID: 2784673511
+    locked: 0
+  - name: Road
+    uniqueID: 1634811865
     locked: 0
   - name: Fence
     uniqueID: 3569206695
     locked: 0
-  - name: elements
-    uniqueID: 487028175
-    locked: 0
-  - name: ui
-    uniqueID: 2464465643
-    locked: 0
-  - name: beach
-    uniqueID: 2784673511
+  - name: Plants
+    uniqueID: 3357698311
     locked: 0
   - name: building
     uniqueID: 3052660043
@@ -70,9 +67,12 @@ TagManager:
   - name: tree
     uniqueID: 1486139327
     locked: 0
-  - name: Plants
-    uniqueID: 3357698311
+  - name: elements
+    uniqueID: 487028175
     locked: 0
-  - name: Road
-    uniqueID: 1634811865
+  - name: shadow
+    uniqueID: 2722302657
+    locked: 0
+  - name: ui
+    uniqueID: 2464465643
     locked: 0

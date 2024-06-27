@@ -9,16 +9,23 @@ public class PickupController : MonoBehaviour
     private bool isCollected;
     private bool isInRange;
     public Item currItem;
+    public NPCInfo currNPCInfo;
     public KeyCode pickupKey = KeyCode.E;
     // public BasicInventory inventory;
     public GameObject pickupEffect;
+    private SpriteRenderer spriteRenderer;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        // initialize overworld sprite
+        if(currItem != null)
+        {
+            spriteRenderer = this.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = currItem.overworldSprite;
+        }
     }
 
     private void Update()
@@ -26,6 +33,11 @@ public class PickupController : MonoBehaviour
         if ((Input.GetKeyDown(pickupKey) || Input.GetButtonDown("PickUp")) && !isCollected && isInRange)
         {
             isCollected = true;
+
+            if(currNPCInfo != null)
+            {
+                currNPCInfo.isCollected = true;
+            }
             
             Destroy(gameObject);
 

@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11599db8957794688ad30890ad91e75e, type: 3}
-  m_Name: New NPC Info
+  m_Name: test_info_2
   m_EditorClassIdentifier: 
-  infoDescription: 
-  sigilColor: {r: 1, g: 0.9454185, b: 0, a: 0}
+  infoDescription: Her daugher works in the castle and she takes great pride in her
+    daugter.
+  sigilColor: {r: 0.4056604, g: 0.22663774, b: 0, a: 0}
+  isCollected: 1
+  sourceType: 2

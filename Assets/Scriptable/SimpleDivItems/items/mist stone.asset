@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: mist stone
   itemType: 0
   itemDescription: mist stone
-  overworldSprite: {fileID: 21300000, guid: 540482410860a4d9c88ea44d3b626c79, type: 3}
+  overworldSprite: {fileID: 21300000, guid: 6af7ce60e3edf9e41814bb310e9abd3c, type: 3}
   icon: {fileID: 21300000, guid: 540482410860a4d9c88ea44d3b626c79, type: 3}
   divResult: someone nearby might need your help...
   associatedDivItems:

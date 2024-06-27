@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: amber
   itemType: 0
   itemDescription: amber
-  overworldSprite: {fileID: 21300000, guid: bd00a82ce265043b0869f3798898e42d, type: 3}
+  overworldSprite: {fileID: 21300000, guid: fbd37c21ce3fc6c49a2b5f1e820b76d5, type: 3}
   icon: {fileID: 21300000, guid: bd00a82ce265043b0869f3798898e42d, type: 3}
   divResult: 'Temp: Buff and debuff text'
   associatedDivItems:

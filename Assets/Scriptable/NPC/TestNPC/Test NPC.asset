@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Chick
   sigilColor: {r: 1, g: 0.8410583, b: 0.3726415, a: 0}
-  npcType: 0
+  npcType: 1
   description: 
   npcPortrait: {fileID: -406558943, guid: 3a4c25a1ac97f4285a20721a88ef0073, type: 3}
-  DialogueSequence: []
+  dialougeNode: Test
+  itemsToUseForDivination: []
+  npcInfoList:
+  - {fileID: 11400000, guid: 8a7048241e88041909463cb5114ca6f1, type: 2}
+  - {fileID: 11400000, guid: e6b1d35ed4bab46309f530f69dd57d96, type: 2}
+  - {fileID: 11400000, guid: 60ac49822dd354fca9836b2338cb6af8, type: 2}
+  - {fileID: 11400000, guid: 235ec8790bb1149b59eef86d8d96d5d2, type: 2}

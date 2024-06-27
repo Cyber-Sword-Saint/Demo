@@ -10,4 +10,13 @@ public class NPCInfo : ScriptableObject
 {
     public string infoDescription;
     public Color sigilColor;
+    public bool isCollected = false;
+    public SourceType sourceType;
+}
+
+public enum SourceType
+{
+    Dialogue,
+    NoticeBoard,
+    Gathering,
 }
